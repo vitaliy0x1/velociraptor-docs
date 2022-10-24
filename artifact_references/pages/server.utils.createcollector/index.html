@@ -1,0 +1,541 @@
+<!doctype html><html lang=en class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.104.3"><meta name=description content><link rel=icon href=/images/favicon.png type=image/png><title>Server.Utils.CreateCollector :: Velociraptor - Digging deeper!</title><link href=/css/nucleus.css?1666623081 rel=stylesheet><link href=/css/fontawesome-all.min.css?1666623081 rel=stylesheet><link href=/css/featherlight.min.css?1666623081 rel=stylesheet><link href=/css/perfect-scrollbar.min.css?1666623081 rel=stylesheet><link href=/css/auto-complete.css?1666623081 rel=stylesheet><link href=/css/theme.css?1666623081 rel=stylesheet><link href=/css/tabs.css?1666623081 rel=stylesheet><link href=/css/hugo-theme.css?1666623081 rel=stylesheet><link href=/css/theme-mine.css?1666623081 rel=stylesheet><link href=/css/dark.css?1666623081 rel=stylesheet><link href=/css/syntax.css?1666623081 rel=stylesheet><link href=/css/light.css?1666623081 rel=stylesheet><link href=/css/hljs.css?1666623081 rel=stylesheet><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css?1666623081 rel=stylesheet><script src=/js/jquery-3.3.1.min.js?1666623081></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-QYH72LMYCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-QYH72LMYCS",{anonymize_ip:!1})}</script><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-QYH72LMYCS","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script></script></head><body data-url=/artifact_references/pages/server.utils.createcollector/><nav id=sidebar><div id=header-wrapper><div id=header><script>function darkmode(){$("body").addClass("dark").removeClass("light"),document.cookie="theme=darkmode;path=/"}function lightmode(){$("body").removeClass("dark").addClass("light"),document.cookie="theme=lightmode;path=/"}const regex=new RegExp("theme=darkmode");regex.test(document.cookie)?darkmode():lightmode()</script><div class="btn btn-default ThemeSelector darkmode" onclick=darkmode()><i class="fas fa-moon"></i></div><div class="btn btn-default ThemeSelector lightmode" onclick=lightmode()><i class="fas fa-sun"></i></div><a href=https://docs.velociraptor.app/><img src=https://docs.velociraptor.app//images/logo.svg></a></div></div><div class=highlightable><ul class=topics><li data-nav-id=https://docs.velociraptor.app/docs/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/><i class="fas fa-book-reader"></i>Documentation</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/overview/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/overview/>Velociraptor Overview</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/overview/history/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/overview/history/>History</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/overview/support/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/overview/support/>Support Policy</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/deployment/>Deployment</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/deployment/self-signed/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/self-signed/>Self-Signed SSL</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/cloud/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/deployment/cloud/>Cloud Deployment</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/deployment/cloud/multifrontend/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/cloud/multifrontend/>Multi-Frontend</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/clients/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/clients/>Deploying Clients</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/rbac/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/rbac/>Users and Roles</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/resources/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/resources/>Performance</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/troubleshooting/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/troubleshooting/>Troubleshooting</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/gui/>The Admin GUI</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/gui/clients/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/gui/clients/>Inspecting clients</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/vfs/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/gui/vfs/>The VFS</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/artifacts/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/gui/artifacts/>Artifacts</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/hunting/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/gui/hunting/>Hunting</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/vql/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/vql/>VQL Fundamentals</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/vql/notebooks/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/vql/notebooks/>Notebooks</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/vql/artifacts/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/vql/artifacts/>Artifacts</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/vql/events/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/vql/events/>Event Queries</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/forensic/>Forensic Analysis</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/forensic/filesystem/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/filesystem/>Searching Filenames</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/searching/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/searching/>Searching Content</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/ntfs/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/ntfs/>NTFS Analysis</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/binary/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/binary/>Binary parsing</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/evidence_of_execution/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/evidence_of_execution/>Evidence Of Execution</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/event_logs/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/event_logs/>Event Logs</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/volatile/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/volatile/>Volatile State</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/offline_triage/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/offline_triage/>Triage and acquisition</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/client_monitoring/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/client_monitoring/>Client Monitoring</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/extending_vql/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/extending_vql/>Extending VQL</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/server_automation/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/server_automation/>Server Automation</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/server_automation/server_api/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/server_automation/server_api/>Server API</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/server_automation/server_monitoring/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/server_automation/server_monitoring/>Server Monitoring</a></div></li></ul></li></ul></li><hr><li data-nav-id=https://docs.velociraptor.app/vql_reference/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/vql_reference/><i class="fas fa-book"></i>VQL Reference</a></div><ul><li data-nav-id=https://docs.velociraptor.app/vql_reference/basic/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/basic/>Basic VQL</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/linux/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/linux/>Linux Specific</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/windows/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/windows/>Windows Specific</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/parsers/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/parsers/>Parsers</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/server/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/server/>Server Side</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/plugin/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/plugin/>Client Side</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/event/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/event/>Event Plugins</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/experimental/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/experimental/>Experimental</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/misc/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/misc/>Misc</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/training/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/training/><i class="fas fa-graduation-cap"></i>Training</a></div></li><li data-nav-id=https://docs.velociraptor.app/blog/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/blog/><i class="fas fa-newspaper"></i>Blog</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/presentations/><i class="fas fa-chalkboard-teacher"></i>Presentations</a></div><ul><li data-nav-id=https://docs.velociraptor.app/presentations/2022_linuxconf_au/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_linuxconf_au/>Linux Conf Au 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_auscert/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_auscert/>Auscert 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_dfrws_us/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_dfrws_us/>DFRWS US 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_tech_user_group_cbr/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_tech_user_group_cbr/>Tech Users Group 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_sans_summit/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_sans_summit/>SANS Summit 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_velocon/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_velocon/>Velocon 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_dfrws_apac/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_dfrws_apac/>DFRWS APAC 2022</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/exchange/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/exchange/><i class="fas fa-code"></i>Artifact Exchange</a></div></li><li data-nav-id=https://docs.velociraptor.app/artifact_references/ class="dd-item parent haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/artifact_references/><i class="fas fa-book"></i>Artifact Reference</a></div></li><li data-nav-id=https://docs.velociraptor.app/knowledge_base/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/knowledge_base/><i class="fas fa-brain"></i>Knowledge Base</a></div></li><li data-nav-id=https://docs.velociraptor.app/search/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/search/><i class='fas fa-search'></i>Search</a></div></li></ul><hr><section id=shortcuts><h3></h3><ul><li><a class=padding href=https://github.com/Velocidex/velociraptor><i class='fab fa-github'></i>Github</a></li><li><a class=padding href=https://docs.velociraptor.app/discord/><i class='fab fa-discord'></i>Discord</a></li><li><a class=padding href=mailto:velociraptor-discuss@googlegroups.com><i class='fas fa-envelope'></i>Mailing List</a></li><li><a class=padding href=https://docs.velociraptor.app/rss/><i class='fas fa-rss'></i>RSS</a></li></ul></section><section id=footer><div class=footer-copyright>Brought to you by
+<img src=/images/Rapid7_logo.svg class=rapid7><br><i class="fas fa-copyright"></i> 2022</div></section></div></nav><script>$("#sidebar i.fa-angle-right").each(function(){$(this).parent().parent().find("ul").hide()})</script><section id=body><div id=overlay></div><div class="padding highlightable"><div><div id=top-bar><div id=top-github-link><a class=github-link title='Edit this page' href=https://github.com/Velocidex/velociraptor-docs/edit/master/content/artifact_references/pages/server.utils.createcollector.md target=blank><i class="fas fa-code-branch"></i>
+<span id=top-github-link-text>Edit this page</span></a></div><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fas fa-bars"></i></a></span>
+<span id=toc-menu><i class="fas fa-list-alt"></i></span>
+<span class=links>Server.Utils.CreateCollector</span></div><div class=progress><div class=wrapper><nav id=TableOfContents></nav></div></div></div></div><div id=head-tags><div class=tags><a class=tag-link href=/tags/server-artifact>Server Artifact</a></div></div><div id=body-inner><h1>Server.Utils.CreateCollector</h1><p>A utility artifact to create a stand alone collector.</p><p>This artifact is actually invoked by the Offline collector GUI and
+that is the recommended way to launch it. You can find the Offline
+collector builder in the <code>Server Artifacts</code> section of the GUI.</p><pre><code class=language-yaml>name: Server.Utils.CreateCollector
+description: |
+  A utility artifact to create a stand alone collector.
+
+  This artifact is actually invoked by the Offline collector GUI and
+  that is the recommended way to launch it. You can find the Offline
+  collector builder in the `Server Artifacts` section of the GUI.
+
+type: SERVER
+
+tools:
+  - name: VelociraptorWindows
+    github_project: Velocidex/velociraptor
+    github_asset_regex: windows-amd64.exe
+    serve_locally: true
+
+  - name: VelociraptorWindows_x86
+    github_project: Velocidex/velociraptor
+    github_asset_regex: windows-386.exe
+    serve_locally: true
+
+  - name: VelociraptorLinux
+    github_project: Velocidex/velociraptor
+    github_asset_regex: linux-amd64
+    serve_locally: true
+
+  - name: VelociraptorDarwin
+    github_project: Velocidex/velociraptor
+    github_asset_regex: darwin-amd64
+    serve_locally: true
+
+parameters:
+  - name: OS
+    default: Windows
+    type: choices
+    choices:
+      - Windows
+      - Windows_x86
+      - Linux
+      - MacOS
+
+  - name: artifacts
+    description: A list of artifacts to collect
+    type: json_array
+    default: |
+      [&quot;Generic.Client.Info&quot;]
+
+  - name: template
+    default:
+    description: The HTML report template to use.
+
+  - name: Password
+    description: If set we encrypt collected zip files with this password.
+
+  - name: parameters
+    description: A dict containing the parameters to set.
+    type: json
+    default: |
+      {}
+
+  - name: target
+    description: Output type
+    type: choices
+    default: ZIP
+    choices:
+      - ZIP
+      - GCS
+      - S3
+      - SFTP
+
+  - name: target_args
+    description: Type Dependent args
+    type: json
+    default: &quot;{}&quot;
+
+  - name: opt_verbose
+    default: Y
+    type: bool
+    description: Show verbose progress.
+
+  - name: opt_banner
+    default: Y
+    type: bool
+    description: Show Velociraptor banner.
+
+  - name: opt_prompt
+    default: N
+    type: bool
+    description: Wait for a prompt before closing.
+
+  - name: opt_admin
+    default: Y
+    type: bool
+    description: Require administrator privilege when running.
+
+  - name: opt_tempdir
+    default:
+    description: A directory to write tempfiles in
+
+  - name: opt_level
+    default: &quot;4&quot;
+    type: int
+    description: Compression level (0=no compression).
+
+  - name: opt_format
+    default: &quot;jsonl&quot;
+    description: Output format (jsonl or csv)
+
+  - name: opt_output_directory
+    default: &quot;&quot;
+    description: An optional output directory prefix
+
+  - name: opt_cpu_limit
+    default: &quot;0&quot;
+    type: int
+    description: A number between 0 to 100 representing the target maximum CPU utilization during running of this artifact.
+
+  - name: opt_progress_timeout
+    default: &quot;1800&quot;
+    type: int
+    description: |
+      If specified the collector is terminated if it made no progress
+      in this long. Note: Execution time may be a lot longer since
+      each time any result is produced this counter is reset.
+
+  - name: opt_timeout
+    default: &quot;0&quot;
+    type: int
+    description: |
+      If specified the collection must complete in the given time. It
+      will be cancelled if the collection exceeds this time.
+
+  - name: StandardCollection
+    type: hidden
+    default: |
+      // Add all the tools we are going to use to the inventory.
+      LET _ &lt;= SELECT inventory_add(tool=ToolName, hash=ExpectedHash)
+       FROM parse_csv(filename=&quot;/inventory.csv&quot;, accessor=&quot;me&quot;)
+       WHERE log(message=&quot;Adding tool &quot; + ToolName)
+
+      LET baseline &lt;= SELECT Fqdn FROM info()
+
+      // Make the filename safe on windows but we trust the OutputPrefix.
+      LET filename &lt;= OutputPrefix + regex_replace(
+          source=format(format=&quot;Collection-%s-%s&quot;,
+                        args=[baseline[0].Fqdn,
+                              timestamp(epoch=now()).MarshalText]),
+          re=&quot;[^0-9A-Za-z\\-]&quot;, replace=&quot;_&quot;)
+
+      LET _ &lt;= log(message=&quot;Will collect package &quot; + filename)
+      LET report_filename &lt;= if(condition=Template, then=filename + &quot;.html&quot;)
+      SELECT * FROM collect(artifacts=Artifacts, report=report_filename,
+          args=Parameters, output=filename + &quot;.zip&quot;, template=Template,
+          cpu_limit=CpuLimit,
+          progress_timeout=ProgressTimeout,
+          timeout=Timeout,
+          password=Password, level=Level, format=Format)
+
+  - name: S3Collection
+    type: hidden
+    default: |
+      // A utility function to upload the file.
+      LET upload_file(filename, name, accessor) = upload_s3(
+          file=filename,
+          accessor=accessor,
+          bucket=TargetArgs.bucket,
+          name=name,
+          credentialskey=TargetArgs.credentialsKey,
+          credentialssecret=TargetArgs.credentialsSecret,
+          region=TargetArgs.region,
+          endpoint=TargetArgs.endpoint,
+          serversideencryption=TargetArgs.serverSideEncryption,
+          noverifycert=TargetArgs.noverifycert)
+
+  - name: GCSCollection
+    type: hidden
+    default: |
+      // A utility function to upload the file.
+      LET upload_file(filename, name, accessor) = upload_gcs(
+          file=filename,
+          accessor=accessor,
+          bucket=TargetArgs.bucket,
+          project=GCSBlob.project_id,
+          name=name,
+          credentials=TargetArgs.GCSKey)
+
+  - name: SFTPCollection
+    type: hidden
+    default : |
+      LET upload_file(filename, name, accessor) = upload_sftp(
+        file=filename,
+        accessor=accessor,
+        name=name,
+        user=TargetArgs.user,
+        path=TargetArgs.path,
+        privatekey=TargetArgs.privatekey,
+        endpoint=TargetArgs.endpoint,
+        hostkey = TargetArgs.hostkey)
+
+  - name: CloudCollection
+    type: hidden
+    default: |
+      // Add all the tools we are going to use to the inventory.
+      LET _ &lt;= SELECT inventory_add(tool=ToolName, hash=ExpectedHash)
+      FROM parse_csv(filename=&quot;/inventory.csv&quot;, accessor=&quot;me&quot;)
+      WHERE log(message=&quot;Adding tool &quot; + ToolName)
+
+      LET baseline &lt;= SELECT Fqdn, basename(path=Exe) AS Exe FROM info()
+      LET TargetArgs &lt;= target_args
+
+      // Make the filename safe on windows but we trust the OutputPrefix.
+      LET filename &lt;= OutputPrefix + regex_replace(
+          source=format(format=&quot;Collection-%s-%s&quot;,
+                        args=[baseline[0].Fqdn,
+                              timestamp(epoch=now()).MarshalText]),
+          re=&quot;[^0-9A-Za-z\\-]&quot;, replace=&quot;_&quot;)
+
+      // Try to upload the log file now to see if we are even able to
+      // upload at all - we do this to avoid having to collect all the
+      // data and then failing the upload step.
+      LET _ &lt;= log(message=&quot;Uploading to &quot; + filename + &quot;.log&quot;)
+      LET upload_test &lt;= upload_file(
+          filename=&quot;Test upload from &quot; + baseline[0].Exe,
+          accessor=&quot;data&quot;,
+          name=filename + &quot;.log&quot;)
+
+      LET _ &lt;= log(message=&quot;Will collect package &quot; + filename +
+         &quot; and upload to cloud bucket &quot; + TargetArgs.bucket)
+      LET report_filename &lt;= if(condition=Template, then=tempfile(extension=&quot;.html&quot;))
+      LET collect_and_upload = SELECT
+          upload_file(filename=Container,
+                      name=filename+&quot;.zip&quot;,
+                      accessor=&quot;file&quot;) AS Upload,
+          if(condition=Template,
+             then=upload_file(filename=Report,
+                              name=filename+&quot;.html&quot;,
+                              accessor=&quot;file&quot;)) AS ReportUpload,
+          upload_file(filename=baseline[0].Exe + &quot;.log&quot;,
+                      name=filename+&quot;.log&quot;,
+                      accessor=&quot;file&quot;) AS LogUpload
+      FROM collect(artifacts=Artifacts,
+          report=report_filename,
+          args=Parameters,
+          format=Format,
+          output=tempfile(extension=&quot;.zip&quot;),
+          template=Template,
+          cpu_limit=CpuLimit,
+          progress_timeout=ProgressTimeout,
+          timeout=Timeout,
+          password=Password,
+          level=Level)
+
+      SELECT * FROM if(condition=upload_test.Path,
+          then=collect_and_upload,
+          else={SELECT log(message=&quot;Aborting collection: Failed to upload to cloud bucket!&quot;)
+                FROM scope()})
+
+  - name: PackageToolsArtifact
+    description: Collects and uploads third party binaries.
+    type: hidden
+    default: |
+      name: PackageToolsArtifact
+      parameters:
+       - name: Binaries
+         type: json_array
+         default: '[]'
+      sources:
+       - query: |
+          LET temp &lt;= tempfile()
+
+          LET uploader = SELECT ToolName,
+                                Upload.Path AS Filename,
+                                Upload.sha256 AS ExpectedHash,
+                                Upload.Size AS Size
+          FROM foreach(row=Binaries,
+            query={
+              SELECT _value AS ToolName, upload(file=FullPath, name=Name) AS Upload
+              FROM Artifact.Generic.Utils.FetchBinary(
+                   ToolName=_value, SleepDuration='0',
+                   ToolInfo=inventory_get(tool=_value))
+            })
+
+          // Flush the entire query into the inventory file.
+          LET _ &lt;= SELECT * FROM write_csv(filename=temp, query=uploader)
+
+          // Now upload it.
+          SELECT upload(file=temp, name=&quot;inventory.csv&quot;) FROM scope()
+
+  - name: FetchBinaryOverride
+    type: hidden
+    description: |
+       A replacement for Generic.Utils.FetchBinary which
+       grabs files from the local archive.
+
+    default: |
+       LET RequiredTool &lt;= ToolName
+
+       LET matching_tools &lt;= SELECT ToolName, Filename
+       FROM parse_csv(filename=&quot;/inventory.csv&quot;, accessor=&quot;me&quot;)
+       WHERE RequiredTool = ToolName
+
+       LET get_ext(filename) = parse_string_with_regex(
+             regex=&quot;(\\.[a-z0-9]+)$&quot;, string=filename).g1
+
+       LET temp_binary &lt;= if(condition=matching_tools,
+       then=tempfile(
+                extension=get_ext(filename=matching_tools[0].Filename),
+                remove_last=TRUE,
+                permissions=if(condition=IsExecutable, then=&quot;x&quot;)))
+
+       SELECT copy(filename=Filename, accessor=&quot;me&quot;, dest=temp_binary) AS FullPath,
+              Filename AS Name
+       FROM matching_tools
+
+sources:
+  - query: |
+      LET Payload &lt;= tempfile(extension=&quot;.zip&quot;)
+      LET Binaries &lt;= SELECT * FROM foreach(
+          row={
+             SELECT tools FROM artifact_definitions(names=artifacts)
+          }, query={
+             SELECT * FROM foreach(row=tools,
+             query={
+              SELECT name AS Binary FROM scope()
+             })
+          }) GROUP BY Binary
+
+      // Get some tempfiles to work with.
+      LET Config &lt;= tempfile()
+      LET Destination &lt;= tempfile()
+
+      // Choose the right target binary depending on the target OS
+      LET tool_name = SELECT * FROM switch(
+       a={ SELECT &quot;VelociraptorWindows&quot; AS Type FROM scope() WHERE OS = &quot;Windows&quot;},
+       b={ SELECT &quot;VelociraptorWindows_x86&quot; AS Type FROM scope() WHERE OS = &quot;Windows_x86&quot;},
+       c={ SELECT &quot;VelociraptorLinux&quot; AS Type FROM scope() WHERE OS = &quot;Linux&quot;},
+       d={ SELECT &quot;VelociraptorDarwin&quot; AS Type FROM scope() WHERE OS = &quot;MacOS&quot;},
+       e={ SELECT &quot;&quot; AS Type FROM scope()
+           WHERE NOT log(message=&quot;Unknown target type &quot; + OS) }
+      )
+
+      // Repack this binary.
+      LET _ &lt;= log(message=&quot;Will get tool &quot; + tool_name[0].Type)
+
+      LET target_binary &lt;= SELECT FullPath, Name
+         FROM Artifact.Generic.Utils.FetchBinary(
+            ToolName=tool_name[0].Type, SleepDuration=&quot;0&quot;,
+            ToolInfo=inventory_get(tool=tool_name[0].Type))
+         WHERE log(message=&quot;Target binary &quot; + Name + &quot; is at &quot; + FullPath)
+
+      // This is what we will call it.
+      LET CollectorName &lt;= format(
+          format='Collector_%v',
+          args=[target_binary[0].Name, ])
+
+      // Create a zip file with the binaries in it.
+      LET _ &lt;= SELECT * FROM collect(artifacts=&quot;PackageToolsArtifact&quot;,
+         output=Payload, args=dict(PackageToolsArtifact=dict(Binaries=Binaries.Binary)),
+         artifact_definitions=PackageToolsArtifact)
+
+      LET CollectionArtifact &lt;= SELECT Value FROM switch(
+        a = { SELECT StandardCollection AS Value FROM scope() WHERE target = &quot;ZIP&quot; },
+        b = { SELECT S3Collection + CloudCollection AS Value  FROM scope() WHERE target = &quot;S3&quot; },
+        c = { SELECT GCSCollection + CloudCollection AS Value  FROM scope() WHERE target = &quot;GCS&quot; },
+        d = { SELECT SFTPCollection + CloudCollection AS Value  FROM scope() WHERE target = &quot;SFTP&quot; },
+        e = { SELECT &quot;&quot; AS Value  FROM scope() WHERE log(message=&quot;Unknown collection type &quot; + target) }
+      )
+
+      LET definitions &lt;= SELECT * FROM chain(
+      a = { SELECT name, description, tools, parameters, sources, reports
+            FROM artifact_definitions(names=artifacts)
+            WHERE NOT built_in AND
+              log(message=&quot;Adding artifact_definition for &quot; + name) },
+
+      -- Support custom templates if provided
+      a2 = { SELECT * FROM if(condition=template,
+             then={
+                SELECT name, description, tools, parameters, sources, reports
+                FROM artifact_definitions(names=template)
+                WHERE NOT built_in AND
+                  log(message=&quot;Adding artifact_definition for template &quot; + name)
+              })
+      },
+
+      // Create the definition of the Collector artifact.
+      b = { SELECT &quot;Collector&quot; AS name, (
+                    dict(name=&quot;Artifacts&quot;,
+                         default=serialize(format='json', item=artifacts),
+                         type=&quot;json_array&quot;),
+                    dict(name=&quot;Parameters&quot;,
+                         default=serialize(format='json', item=parameters),
+                         type=&quot;json&quot;),
+                    dict(name=&quot;Template&quot;, default=template),
+                    dict(name=&quot;Password&quot;, default=Password),
+                    dict(name=&quot;Level&quot;, default=opt_level, type=&quot;int&quot;),
+                    dict(name=&quot;Format&quot;, default=opt_format),
+                    dict(name=&quot;OutputPrefix&quot;, default=opt_output_directory),
+                    dict(name=&quot;CpuLimit&quot;, type=&quot;int&quot;,
+                         default=opt_cpu_limit),
+                    dict(name=&quot;ProgressTimeout&quot;, type=&quot;int&quot;,
+                         default=opt_progress_timeout),
+                    dict(name=&quot;Timeout&quot;, default=opt_timeout, type=&quot;int&quot;),
+                    dict(name=&quot;target_args&quot;,
+                         default=serialize(format='json', item=target_args),
+                         type=&quot;json&quot;),
+                ) AS parameters,
+                (
+                  dict(query=CollectionArtifact[0].Value),
+                ) AS sources
+            FROM scope() },
+
+      // Override FetchBinary to get files from the executable.
+      c = { SELECT &quot;Generic.Utils.FetchBinary&quot; AS name,
+            (
+               dict(name=&quot;SleepDuration&quot;, type=&quot;int&quot;, default=&quot;0&quot;),
+               dict(name=&quot;ToolName&quot;),
+               dict(name=&quot;ToolInfo&quot;),
+               dict(name=&quot;IsExecutable&quot;, type=&quot;bool&quot;, default=&quot;Y&quot;),
+            ) AS parameters,
+            (
+               dict(query=FetchBinaryOverride),
+            ) AS sources FROM scope()  }
+      )
+
+      LET optional_cmdline = SELECT * FROM chain(
+        a={ SELECT &quot;-v&quot; AS Opt FROM scope() WHERE opt_verbose},
+        b={ SELECT &quot;--nobanner&quot; AS Opt FROM scope() WHERE NOT opt_banner},
+        c={ SELECT &quot;--require_admin&quot; AS Opt FROM scope() WHERE opt_admin},
+        d={ SELECT &quot;--prompt&quot; AS Opt FROM scope() WHERE opt_prompt},
+        e={ SELECT &quot;--tempdir&quot; AS Opt FROM scope() WHERE opt_tempdir},
+        f={ SELECT opt_tempdir AS Opt FROM scope() WHERE opt_tempdir}
+      )
+
+      // Build the autoexec config file depending on the user's
+      // collection type choices.
+      LET autoexec &lt;= dict(autoexec=dict(
+          argv=(&quot;artifacts&quot;, &quot;collect&quot;, &quot;Collector&quot;,
+                &quot;--logfile&quot;, CollectorName + &quot;.log&quot;) + optional_cmdline.Opt,
+          artifact_definitions=definitions)
+      )
+
+      LET me &lt;= SELECT Exe FROM info()
+                WHERE log(message=&quot;My binary is &quot; + Exe)
+
+      // Copy the configuration to a temp file and shell out to our
+      // binary to repack it.
+      LET repack_step = SELECT upload(
+           file=Destination,
+           accessor=&quot;file&quot;,
+           name=CollectorName) AS Binary,
+           timestamp(epoch=now()) As CreationTime
+      FROM execve(argv=[
+        me[0].Exe, &quot;config&quot;, &quot;repack&quot;,
+        &quot;--exe&quot;, target_binary[0].FullPath,
+        &quot;--append&quot;, Payload,
+        copy(dest=Config,
+             accessor='data',
+             filename=serialize(format='json', item=autoexec)),
+        Destination ], length=1000000)
+      WHERE log(message=&quot;Creating config on &quot; + Config) AND log(message=Stderr)
+
+      // Only actually run stuff if everything looks right.
+      SELECT * FROM if(condition=autoexec AND target_binary AND me[0].Exe,
+         then=repack_step)
+
+</code></pre><footer class=footline></footer></div><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//velocidex-velociraptor.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div id=navigation></div></section><div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px><div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=/js/clipboard.min.js?1666623081></script>
+<script src=/js/perfect-scrollbar.min.js?1666623081></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1666623081></script>
+<script src=/js/jquery.sticky.js?1666623081></script>
+<script src=/js/featherlight.min.js?1666623081></script>
+<script src=/js/highlight.min.js?1666623081></script>
+<script>hljs.highlightAll()</script><script src=/js/modernizr.custom-3.6.0.js?1666623081></script>
+<script src=/js/learn.js?1666623081></script>
+<script src=/js/hugo-learn.js?1666623081></script></body></html>

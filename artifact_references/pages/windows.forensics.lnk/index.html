@@ -1,0 +1,609 @@
+<!doctype html><html lang=en class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.104.3"><meta name=description content><link rel=icon href=/images/favicon.png type=image/png><title>Windows.Forensics.Lnk :: Velociraptor - Digging deeper!</title><link href=/css/nucleus.css?1666623082 rel=stylesheet><link href=/css/fontawesome-all.min.css?1666623082 rel=stylesheet><link href=/css/featherlight.min.css?1666623082 rel=stylesheet><link href=/css/perfect-scrollbar.min.css?1666623082 rel=stylesheet><link href=/css/auto-complete.css?1666623082 rel=stylesheet><link href=/css/theme.css?1666623082 rel=stylesheet><link href=/css/tabs.css?1666623082 rel=stylesheet><link href=/css/hugo-theme.css?1666623082 rel=stylesheet><link href=/css/theme-mine.css?1666623082 rel=stylesheet><link href=/css/dark.css?1666623082 rel=stylesheet><link href=/css/syntax.css?1666623082 rel=stylesheet><link href=/css/light.css?1666623082 rel=stylesheet><link href=/css/hljs.css?1666623082 rel=stylesheet><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css?1666623082 rel=stylesheet><script src=/js/jquery-3.3.1.min.js?1666623082></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-QYH72LMYCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-QYH72LMYCS",{anonymize_ip:!1})}</script><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-QYH72LMYCS","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script></script></head><body data-url=/artifact_references/pages/windows.forensics.lnk/><nav id=sidebar><div id=header-wrapper><div id=header><script>function darkmode(){$("body").addClass("dark").removeClass("light"),document.cookie="theme=darkmode;path=/"}function lightmode(){$("body").removeClass("dark").addClass("light"),document.cookie="theme=lightmode;path=/"}const regex=new RegExp("theme=darkmode");regex.test(document.cookie)?darkmode():lightmode()</script><div class="btn btn-default ThemeSelector darkmode" onclick=darkmode()><i class="fas fa-moon"></i></div><div class="btn btn-default ThemeSelector lightmode" onclick=lightmode()><i class="fas fa-sun"></i></div><a href=https://docs.velociraptor.app/><img src=https://docs.velociraptor.app//images/logo.svg></a></div></div><div class=highlightable><ul class=topics><li data-nav-id=https://docs.velociraptor.app/docs/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/><i class="fas fa-book-reader"></i>Documentation</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/overview/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/overview/>Velociraptor Overview</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/overview/history/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/overview/history/>History</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/overview/support/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/overview/support/>Support Policy</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/deployment/>Deployment</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/deployment/self-signed/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/self-signed/>Self-Signed SSL</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/cloud/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/deployment/cloud/>Cloud Deployment</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/deployment/cloud/multifrontend/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/cloud/multifrontend/>Multi-Frontend</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/clients/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/clients/>Deploying Clients</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/rbac/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/rbac/>Users and Roles</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/resources/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/resources/>Performance</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/troubleshooting/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/troubleshooting/>Troubleshooting</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/gui/>The Admin GUI</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/gui/clients/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/gui/clients/>Inspecting clients</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/vfs/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/gui/vfs/>The VFS</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/artifacts/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/gui/artifacts/>Artifacts</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/hunting/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/gui/hunting/>Hunting</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/vql/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/vql/>VQL Fundamentals</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/vql/notebooks/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/vql/notebooks/>Notebooks</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/vql/artifacts/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/vql/artifacts/>Artifacts</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/vql/events/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/vql/events/>Event Queries</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/forensic/>Forensic Analysis</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/forensic/filesystem/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/filesystem/>Searching Filenames</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/searching/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/searching/>Searching Content</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/ntfs/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/ntfs/>NTFS Analysis</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/binary/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/binary/>Binary parsing</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/evidence_of_execution/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/evidence_of_execution/>Evidence Of Execution</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/event_logs/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/event_logs/>Event Logs</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/volatile/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/volatile/>Volatile State</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/offline_triage/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/offline_triage/>Triage and acquisition</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/client_monitoring/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/client_monitoring/>Client Monitoring</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/extending_vql/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/extending_vql/>Extending VQL</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/server_automation/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/server_automation/>Server Automation</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/server_automation/server_api/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/server_automation/server_api/>Server API</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/server_automation/server_monitoring/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/server_automation/server_monitoring/>Server Monitoring</a></div></li></ul></li></ul></li><hr><li data-nav-id=https://docs.velociraptor.app/vql_reference/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/vql_reference/><i class="fas fa-book"></i>VQL Reference</a></div><ul><li data-nav-id=https://docs.velociraptor.app/vql_reference/basic/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/basic/>Basic VQL</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/linux/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/linux/>Linux Specific</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/windows/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/windows/>Windows Specific</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/parsers/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/parsers/>Parsers</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/server/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/server/>Server Side</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/plugin/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/plugin/>Client Side</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/event/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/event/>Event Plugins</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/experimental/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/experimental/>Experimental</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/misc/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/misc/>Misc</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/training/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/training/><i class="fas fa-graduation-cap"></i>Training</a></div></li><li data-nav-id=https://docs.velociraptor.app/blog/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/blog/><i class="fas fa-newspaper"></i>Blog</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/presentations/><i class="fas fa-chalkboard-teacher"></i>Presentations</a></div><ul><li data-nav-id=https://docs.velociraptor.app/presentations/2022_linuxconf_au/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_linuxconf_au/>Linux Conf Au 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_auscert/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_auscert/>Auscert 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_dfrws_us/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_dfrws_us/>DFRWS US 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_tech_user_group_cbr/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_tech_user_group_cbr/>Tech Users Group 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_sans_summit/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_sans_summit/>SANS Summit 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_velocon/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_velocon/>Velocon 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_dfrws_apac/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_dfrws_apac/>DFRWS APAC 2022</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/exchange/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/exchange/><i class="fas fa-code"></i>Artifact Exchange</a></div></li><li data-nav-id=https://docs.velociraptor.app/artifact_references/ class="dd-item parent haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/artifact_references/><i class="fas fa-book"></i>Artifact Reference</a></div></li><li data-nav-id=https://docs.velociraptor.app/knowledge_base/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/knowledge_base/><i class="fas fa-brain"></i>Knowledge Base</a></div></li><li data-nav-id=https://docs.velociraptor.app/search/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/search/><i class='fas fa-search'></i>Search</a></div></li></ul><hr><section id=shortcuts><h3></h3><ul><li><a class=padding href=https://github.com/Velocidex/velociraptor><i class='fab fa-github'></i>Github</a></li><li><a class=padding href=https://docs.velociraptor.app/discord/><i class='fab fa-discord'></i>Discord</a></li><li><a class=padding href=mailto:velociraptor-discuss@googlegroups.com><i class='fas fa-envelope'></i>Mailing List</a></li><li><a class=padding href=https://docs.velociraptor.app/rss/><i class='fas fa-rss'></i>RSS</a></li></ul></section><section id=footer><div class=footer-copyright>Brought to you by
+<img src=/images/Rapid7_logo.svg class=rapid7><br><i class="fas fa-copyright"></i> 2022</div></section></div></nav><script>$("#sidebar i.fa-angle-right").each(function(){$(this).parent().parent().find("ul").hide()})</script><section id=body><div id=overlay></div><div class="padding highlightable"><div><div id=top-bar><div id=top-github-link><a class=github-link title='Edit this page' href=https://github.com/Velocidex/velociraptor-docs/edit/master/content/artifact_references/pages/windows.forensics.lnk.md target=blank><i class="fas fa-code-branch"></i>
+<span id=top-github-link-text>Edit this page</span></a></div><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fas fa-bars"></i></a></span>
+<span id=toc-menu><i class="fas fa-list-alt"></i></span>
+<span class=links>Windows.Forensics.Lnk</span></div><div class=progress><div class=wrapper><nav id=TableOfContents></nav></div></div></div></div><div id=head-tags><div class=tags><a class=tag-link href=/tags/client-artifact>Client Artifact</a></div></div><div id=body-inner><h1>Windows.Forensics.Lnk</h1><p>A Lnk file parser.</p><p>Status: Experimental</p><p>NOTE: Not all shell bags are currently supported, just the common ones.</p><pre><code class=language-yaml>name: Windows.Forensics.Lnk
+description: |
+  A Lnk file parser.
+
+  Status: Experimental
+
+  NOTE: Not all shell bags are currently supported, just the common ones.
+
+reference:
+  - https://github.com/libyal/libfwsi/blob/main/documentation/Windows%20Shell%20Item%20format.asciidoc
+  - https://github.com/libyal/liblnk/blob/main/documentation/Windows%20Shortcut%20File%20(LNK)%20format.asciidoc
+  - https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-shllink
+
+
+parameters:
+  - name: Glob
+    default: C:\Users\*\AppData\Roaming\Microsoft\Windows\Recent\**\*.lnk
+
+  - name: AlsoUpload
+    description: Also upload the link files themselves.
+    type: bool
+
+export: |
+     LET Profile = '''
+     [
+      [&quot;ShellLinkHeader&quot;, 0, [
+        [&quot;HeaderSize&quot;, 0, &quot;uint32&quot;],
+        [&quot;__LinkClsID&quot;, 4, &quot;String&quot;, {
+            &quot;length&quot;: 16,
+            &quot;term&quot;: &quot;&quot;
+        }],
+        [&quot;LinkClsID&quot;, 0, &quot;Value&quot;, {
+            &quot;value&quot;: &quot;x=&gt;format(format='%x', args=x.__LinkClsID)&quot;
+        }],
+        [&quot;LinkFlags&quot;, 20, &quot;Flags&quot;, {
+            &quot;type&quot;: &quot;uint32&quot;,
+            &quot;bitmap&quot;: {
+                &quot;HasLinkTargetIDList&quot;: 0,
+                &quot;HasLinkInfo&quot;: 1,
+                &quot;HasName&quot;: 2,
+                &quot;HasRelativePath&quot;: 3,
+                &quot;HasWorkingDir&quot;: 4,
+                &quot;HasArguments&quot;: 5,
+                &quot;HasIconLocation&quot;: 6,
+                &quot;IsUnicode&quot;: 7,
+                &quot;ForceNoLinkInfo&quot;: 8,
+                &quot;HasExpString&quot;: 9,
+                &quot;RunInSeparateProcess&quot;: 10,
+                &quot;HasDarwinID&quot;: 12,
+                &quot;RunAsUser&quot;: 13,
+                &quot;HasExpIcon&quot;: 14,
+                &quot;NoPidlAlias&quot;: 15,
+                &quot;RunWithShimLayer&quot;: 17,
+                &quot;ForceNoLinkTrack&quot;: 18,
+                &quot;EnableTargetMetadata&quot;: 19,
+                &quot;DisableLinkPathTracking&quot;: 20,
+                &quot;DisableKnownFolderTracking&quot;: 21,
+                &quot;DisableKnownFolderAlias&quot;: 22,
+                &quot;AllowLinkToLink&quot;: 23,
+                &quot;UnaliasOnSave&quot;: 24,
+                &quot;PreferEnvironmentPath&quot;: 25,
+                &quot;KeepLocalIDListForUNCTarget&quot;: 26
+            }
+        }],
+        [&quot;FileAttributes&quot;, 24, &quot;Flags&quot;, {
+            &quot;type&quot;: &quot;uint32&quot;,
+            &quot;bitmap&quot;: {
+                &quot;FILE_ATTRIBUTE_READONLY&quot;: 0,
+                &quot;FILE_ATTRIBUTE_HIDDEN&quot;: 1,
+                &quot;FILE_ATTRIBUTE_SYSTEM&quot;: 2,
+                &quot;FILE_ATTRIBUTE_DIRECTORY&quot;: 4,
+                &quot;FILE_ATTRIBUTE_ARCHIVE&quot;: 5,
+                &quot;FILE_ATTRIBUTE_NORMAL&quot;: 7,
+                &quot;FILE_ATTRIBUTE_TEMPORARY&quot;: 8,
+                &quot;FILE_ATTRIBUTE_SPARSE_FILE&quot;: 9,
+                &quot;FILE_ATTRIBUTE_REPARSE_POINT&quot;: 10,
+                &quot;FILE_ATTRIBUTE_COMPRESSED&quot;: 11,
+                &quot;FILE_ATTRIBUTE_OFFLINE&quot;: 12,
+                &quot;FILE_ATTRIBUTE_NOT_CONTENT_INDEXED&quot;: 13,
+                &quot;FILE_ATTRIBUTE_ENCRYPTED&quot;: 14,
+            }
+        }],
+        [&quot;CreationTime&quot;, 28, &quot;WinFileTime&quot;, {
+            &quot;type&quot;: &quot;uint64&quot;
+        }],
+        [&quot;AccessTime&quot;, 36, &quot;WinFileTime&quot;, {
+            &quot;type&quot;: &quot;uint64&quot;
+        }],
+        [&quot;WriteTime&quot;, 44, &quot;WinFileTime&quot;, {
+            &quot;type&quot;: &quot;uint64&quot;
+        }],
+        [&quot;FileSize&quot;, 52, &quot;uint32&quot;],
+        [&quot;IconIndex&quot;, 56, &quot;uint32&quot;],
+        [&quot;ShowCommand&quot;, 60, &quot;uint32&quot;],
+        [&quot;HotKey&quot;, 62, &quot;uint16&quot;],
+
+        # The LinkTargetIDList only exists if the Link Flag is set otherwise it is empty.
+        [&quot;LinkTargetIDList&quot;, &quot;x=&gt;x.HeaderSize&quot;, &quot;Union&quot;, {
+            &quot;selector&quot;: &quot;x=&gt;x.LinkFlags =~ 'HasLinkTargetIDList'&quot;,
+            &quot;choices&quot;: {
+                &quot;true&quot;: &quot;LinkTargetIDList&quot;,
+                &quot;false&quot;: &quot;Empty&quot;
+            }
+         }],
+
+        [&quot;LinkInfo&quot;, &quot;x=&gt;x.LinkTargetIDList.EndOf&quot;, &quot;Union&quot;, {
+            &quot;selector&quot;: &quot;x=&gt;x.LinkFlags =~ 'HasLinkInfo'&quot;,
+            &quot;choices&quot;: {
+                &quot;true&quot;: &quot;LinkInfo&quot;,
+                &quot;false&quot;: &quot;Empty&quot;
+            }
+        }],
+
+        [&quot;NameInfo&quot;, &quot;x=&gt;x.LinkInfo.EndOf&quot;, &quot;Union&quot;, {
+            &quot;selector&quot;: &quot;x=&gt;x.LinkFlags =~ 'HasName'&quot;,
+            &quot;choices&quot;: {
+                &quot;true&quot;: &quot;NameInfo&quot;,
+                &quot;false&quot;: &quot;Empty&quot;
+            }
+        }],
+
+        [&quot;RelativePathInfo&quot;, &quot;x=&gt;x.NameInfo.EndOf&quot;, &quot;Union&quot;, {
+            &quot;selector&quot;: &quot;x=&gt;x.LinkFlags =~ 'HasRelativePath'&quot;,
+            &quot;choices&quot;: {
+                &quot;true&quot;: &quot;RelativePathInfo&quot;,
+                &quot;false&quot;: &quot;Empty&quot;
+            }
+        }],
+
+        [&quot;WorkingDirInfo&quot;, &quot;x=&gt;x.RelativePathInfo.EndOf&quot;, &quot;Union&quot;, {
+            &quot;selector&quot;: &quot;x=&gt;x.LinkFlags =~ 'HasWorkingDir'&quot;,
+            &quot;choices&quot;: {
+                &quot;true&quot;: &quot;WorkingDirInfo&quot;,
+                &quot;false&quot;: &quot;Empty&quot;
+            }
+        }],
+
+        [&quot;ArgumentInfo&quot;, &quot;x=&gt;x.WorkingDirInfo.EndOf&quot;, &quot;Union&quot;, {
+            &quot;selector&quot;: &quot;x=&gt;x.LinkFlags =~ 'HasArguments'&quot;,
+            &quot;choices&quot;: {
+                &quot;true&quot;: &quot;ArgumentInfo&quot;,
+                &quot;false&quot;: &quot;Empty&quot;
+            }
+        }],
+        [&quot;IconInfo&quot;, &quot;x=&gt;x.ArgumentInfo.EndOf&quot;, &quot;Union&quot;, {
+            &quot;selector&quot;: &quot;x=&gt;x.LinkFlags =~ 'HasIconLocation'&quot;,
+            &quot;choices&quot;: {
+                &quot;true&quot;: &quot;IconInfo&quot;,
+                &quot;false&quot;: &quot;Empty&quot;
+            }
+        }]
+      ]],
+      [&quot;Empty&quot;, 0, []],
+
+      # Struct size includes the size field
+      [&quot;LinkTargetIDList&quot;, &quot;x=&gt;x.IDListSize + 2&quot;, [
+        [&quot;IDListSize&quot;, 0, &quot;uint16&quot;],
+        [&quot;IDList&quot;, 2, &quot;Array&quot;, {
+           &quot;type&quot;: &quot;ItemIDList&quot;,
+           &quot;count&quot;: 1000   # Max count until sentinal
+         }]
+      ]],
+
+      # Item List contains shell bags
+      [&quot;ItemIDList&quot;, &quot;x=&gt;x.ItemIDSize&quot;, [
+        [&quot;ItemIDSize&quot;, 0, &quot;uint16&quot;],
+        [&quot;Offset&quot;, 0, &quot;Value&quot;, {&quot;value&quot;: &quot;x=&gt;x.StartOf&quot;}],
+        [&quot;Type&quot;, 2, &quot;BitField&quot;, {
+          &quot;type&quot;: &quot;uint8&quot;,
+          &quot;start_bit&quot;: 4,
+          &quot;end_bit&quot;: 7,
+        }],
+
+        [&quot;Subtype&quot;, 2, &quot;BitField&quot;, {
+           &quot;type&quot;: &quot;uint8&quot;,
+           &quot;start_bit&quot;: 0,
+           &quot;end_bit&quot;: 1,
+        }],
+
+        # For now only support some common shell bags
+        [&quot;ShellBag&quot;, 0, &quot;Union&quot;, {
+           &quot;selector&quot;: &quot;x=&gt;x.Type&quot;,
+            &quot;choices&quot;: {
+               &quot;64&quot;: &quot;ShellBag0x40&quot;,
+               &quot;48&quot;: &quot;ShellBag0x30&quot;,
+               &quot;16&quot;: &quot;ShellBag0x1f&quot;,
+               &quot;32&quot;: &quot;ShellBag0x20&quot;,
+            }
+        }]
+      ]],
+
+      [&quot;ShellBag0x40&quot;, 0, [
+         [&quot;Name&quot;, 5, &quot;String&quot;, {
+            encoding: &quot;utf8&quot;,
+         }],
+         [&quot;Description&quot;, 0, &quot;Value&quot;, {
+             &quot;value&quot;: 'x=&gt;dict(
+             Type=&quot;NetworkLocation&quot;,
+             ShortName=x.Name
+             )'
+         }]
+      ]],
+
+      # A LinkInfo stores information about the destination of the link.
+      [&quot;LinkInfo&quot;, &quot;x=&gt;x.LinkInfoSize&quot;, [
+        [&quot;Offset&quot;, 0, &quot;Value&quot;, {&quot;value&quot;: &quot;x=&gt;x.StartOf&quot;}],
+        [&quot;LinkInfoSize&quot;, 0, &quot;uint32&quot;],
+        [&quot;__LinkInfoHeaderSize&quot;, 4, &quot;uint32&quot;],
+        [&quot;LinkInfoFlags&quot;, 8, &quot;Flags&quot;, {
+            &quot;type&quot;: &quot;uint32&quot;,
+            &quot;bitmap&quot;: {
+                &quot;VolumeIDAndLocalBasePath&quot;: 0,
+                &quot;CommonNetworkRelativeLinkAndPathSuffix&quot;: 1
+            }
+        }],
+        [&quot;__VolumeIDOffset&quot;, 0xc, &quot;uint32&quot;],
+        [&quot;__LocalBasePathOffset&quot;, 16, &quot;uint32&quot;],
+        [&quot;__CommonNetworkRelativeLinkOffset&quot;, 20, &quot;uint32&quot;],
+        [&quot;__CommonPathSuffixOffset&quot;, 24, &quot;uint32&quot;],
+        [&quot;__LocalBasePath&quot;, &quot;x=&gt;x.__LocalBasePathOffset&quot;, &quot;String&quot;, {}],
+        [&quot;__CommonNetworkRelativePath&quot;, &quot;x=&gt;x.__CommonNetworkRelativeLinkOffset&quot;, &quot;String&quot;],
+        [&quot;__CommonPathSuffix&quot;, &quot;x=&gt;x.__CommonPathSuffixOffset&quot;, &quot;String&quot;],
+        [&quot;__VolumeID&quot;, &quot;x=&gt;x.__VolumeIDOffset&quot;, &quot;VolumeID&quot;],
+        [&quot;__CommonNetworkRelativeLink&quot;, &quot;x=&gt;x.__CommonNetworkRelativeLinkOffset&quot;, &quot;CommonNetworkRelativeLink&quot;],
+
+        # Depending on the LinkInfoFlags this struct needs to be interpreted differently.
+        [&quot;Target&quot;, 0, &quot;Value&quot;, {
+            &quot;value&quot;: '
+               x=&gt;if(condition=x.LinkInfoFlags =~ &quot;VolumeIDAndLocalBasePath&quot;,
+                     then=dict(path=x.__LocalBasePath,
+                               volume_info=x.__VolumeID),
+                     else=dict(path=format(format=&quot;%v\\%v&quot;,
+                               args=[x.__CommonNetworkRelativeLink.NetName, x.__CommonPathSuffix]),
+                               relative_link=x.__CommonNetworkRelativeLink)
+             )'
+        }]
+      ]],
+
+      [&quot;CommonNetworkRelativeLink&quot;, 0, [
+        [&quot;__CommonNetworkRelativeLinkSize&quot;, 0, &quot;uint32&quot;],
+        [&quot;__CommonNetworkRelativeLinkFlags&quot;, 4, &quot;Flags&quot;, {
+            &quot;type&quot;: &quot;uint32&quot;,
+            &quot;bitmap&quot;: {
+                &quot;ValidDevice&quot;: 0,
+                &quot;ValidNetType&quot;: 1,
+            }
+        }],
+        [&quot;__NetNameOffset&quot;, 8, &quot;uint32&quot;],
+        [&quot;__DeviceNameOffset&quot;, 12, &quot;uint32&quot;],
+        [&quot;NetworkProviderType&quot;, 16, &quot;Enumeration&quot;, {
+            &quot;type&quot;: &quot;uint32&quot;,
+            &quot;map&quot;: {
+                &quot;WNNC_NET_AVID&quot;: 0x001A0000,
+                &quot;WNNC_NET_DOCUSPACE&quot;: 0x001B0000,
+                &quot;WNNC_NET_MANGOSOFT&quot;: 0x001C0000,
+                &quot;WNNC_NET_SERNET&quot;: 0x001D0000,
+                &quot;WNNC_NET_RIVERFRONT1&quot;: 0X001E0000,
+                &quot;WNNC_NET_RIVERFRONT2&quot;: 0x001F0000,
+                &quot;WNNC_NET_DECORB&quot;: 0x00200000,
+                &quot;WNNC_NET_PROTSTOR&quot;: 0x00210000,
+                &quot;WNNC_NET_FJ_REDIR&quot;: 0x00220000,
+                &quot;WNNC_NET_DISTINCT&quot;: 0x00230000,
+                &quot;WNNC_NET_TWINS&quot;: 0x00240000,
+                &quot;WNNC_NET_RDR2SAMPLE&quot;: 0x00250000,
+                &quot;WNNC_NET_CSC&quot;: 0x00260000,
+                &quot;WNNC_NET_3IN1&quot;: 0x00270000,
+                &quot;WNNC_NET_EXTENDNET&quot;: 0x00290000,
+                &quot;WNNC_NET_STAC&quot;: 0x002A0000,
+                &quot;WNNC_NET_FOXBAT&quot;: 0x002B0000,
+                &quot;WNNC_NET_YAHOO&quot;: 0x002C0000,
+                &quot;WNNC_NET_EXIFS&quot;: 0x002D0000,
+                &quot;WNNC_NET_DAV&quot;: 0x002E0000,
+                &quot;WNNC_NET_KNOWARE&quot;: 0x002F0000,
+                &quot;WNNC_NET_OBJECT_DIRE&quot;: 0x00300000,
+                &quot;WNNC_NET_MASFAX&quot;: 0x00310000,
+                &quot;WNNC_NET_HOB_NFS&quot;: 0x00320000,
+                &quot;WNNC_NET_SHIVA&quot;: 0x00330000,
+                &quot;WNNC_NET_IBMAL&quot;: 0x00340000,
+                &quot;WNNC_NET_LOCK&quot;: 0x00350000,
+                &quot;WNNC_NET_TERMSRV&quot;: 0x00360000,
+                &quot;WNNC_NET_SRT&quot;: 0x00370000,
+                &quot;WNNC_NET_QUINCY&quot;: 0x00380000,
+                &quot;WNNC_NET_OPENAFS&quot;: 0x00390000,
+                &quot;WNNC_NET_AVID1&quot;: 0X003A0000,
+                &quot;WNNC_NET_DFS&quot;: 0x003B0000,
+                &quot;WNNC_NET_KWNP&quot;: 0x003C0000,
+                &quot;WNNC_NET_ZENWORKS&quot;: 0x003D0000,
+                &quot;WNNC_NET_DRIVEONWEB&quot;: 0x003E0000,
+                &quot;WNNC_NET_VMWARE&quot;: 0x003F0000,
+                &quot;WNNC_NET_RSFX&quot;: 0x00400000,
+                &quot;WNNC_NET_MFILES&quot;: 0x00410000,
+                &quot;WNNC_NET_MS_NFS&quot;: 0x00420000,
+                &quot;WNNC_NET_GOOGLE&quot;: 0x00430000,
+            }
+        }],
+        [&quot;__NetNameOffsetUnicode&quot;, 20, &quot;uint32&quot;],
+        [&quot;__DeviceNameOffsetUnicode&quot;, 24, &quot;uint32&quot;],
+        [&quot;__NetNameAscii&quot;, &quot;x=&gt;x.__NetNameOffset&quot;, &quot;String&quot;],
+        [&quot;__DeviceNameAscii&quot;, &quot;x=&gt;x.__DeviceNameOffset&quot;, &quot;String&quot;],
+        [&quot;__NetNameUnicode&quot;, &quot;x=&gt;x.__NetNameOffsetUnicode&quot;, &quot;String&quot;, {&quot;encoding&quot;: &quot;utf16&quot;}],
+        [&quot;__DeviceNameUnicode&quot;, &quot;x=&gt;x.__DeviceNameOffsetUnicode&quot;, &quot;String&quot;, {&quot;encoding&quot;: &quot;utf16&quot;}],
+        [&quot;NetName&quot;, 0, &quot;Value&quot;, {
+            &quot;value&quot;: &quot;x=&gt;if(condition=x.__NetNameOffset, then=x.__NetNameAscii, else=x.__NetNameUnicode)&quot;
+        }],
+        [&quot;DeviceName&quot;, 0, &quot;Value&quot;, {
+            &quot;value&quot;: &quot;x=&gt;if(condition=x.__DeviceNameOffset, then=x.__DeviceNameAscii, else=x.__DeviceNameUnicode)&quot;
+        }]
+      ]],
+
+      # This is a comment
+      [&quot;VolumeID&quot;, 0, [
+        [&quot;__VolumeIDSize&quot;, 0, &quot;uint32&quot;],
+        [&quot;DriveType&quot;, 4, &quot;Enumeration&quot;, {
+            &quot;type&quot;: &quot;uint32&quot;,
+            &quot;choices&quot;: {
+                 &quot;0&quot;: &quot;DRIVE_UNKNOWN&quot;,
+                 &quot;1&quot;: &quot;DRIVE_NO_ROOT_DIR&quot;,
+                 &quot;2&quot;: &quot;DRIVE_REMOVABLE&quot;,
+                 &quot;3&quot;: &quot;DRIVE_FIXED&quot;,
+                 &quot;4&quot;: &quot;DRIVE_REMOTE&quot;,
+                 &quot;5&quot;: &quot;DRIVE_CDROM&quot;,
+                 &quot;6&quot;: &quot;DRIVE_RAMDISK&quot;
+            }
+        }],
+        [&quot;DriveSerialNumber&quot;, 8, &quot;uint32&quot;],
+        [&quot;__VolumeLabelOffset&quot;, 12, &quot;uint32&quot;],
+        [&quot;__VolumeLabelOffsetUnicode&quot;, 16, &quot;uint32&quot;],
+        [&quot;__VolumeLabelAscii&quot;, &quot;x=&gt;x.__VolumeLabelOffset&quot;, &quot;String&quot;],
+        [&quot;__VolumeLabelUnicode&quot;, &quot;x=&gt;x.__VolumeLabelOffsetUnicode&quot;, &quot;String&quot;, {&quot;encoding&quot;: &quot;utf16&quot;}],
+        [&quot;VolumeLabel&quot;, 0, &quot;Value&quot;, {
+            &quot;value&quot;: 'x=&gt;if(condition=x.__VolumeLabelOffset,
+               then=x.__VolumeLabelAscii, else=x.__VolumeLabelUnicode)'
+        }]
+      ]],
+
+      # Volume name
+      [&quot;ShellBag0x20&quot;, 0, [
+         [&quot;__Name&quot;, 3, &quot;String&quot;],
+         # Name is only valid if the first bit is set.
+         [&quot;Name&quot;, 3, &quot;Value&quot;, {
+             &quot;value&quot;: &quot;x=&gt;if(condition=x.ParentOf.Subtype, then=x.__Name, else='')&quot;,
+         }],
+         [&quot;Description&quot;, 0, &quot;Value&quot;, {
+            &quot;value&quot;: 'x=&gt;dict(
+                LongName=x.Name,
+                ShortName=x.Name,
+                Type=&quot;Volume&quot;
+            )'
+        }]
+      ]],
+
+      # Marks the root class My Computer
+      [&quot;ShellBag0x1f&quot;, 0, [
+        [&quot;Description&quot;, 0, &quot;Value&quot;, {
+            &quot;value&quot;: 'x=&gt;dict(
+               ShortName=&quot;My Computer&quot;,
+               Type=&quot;Root&quot;
+            )'
+        }]
+      ]],
+
+      # Represent a file or directory
+      [&quot;ShellBag0x30&quot;, 0, [
+        [&quot;Size&quot;, 0, &quot;uint16&quot;],
+        [&quot;Type&quot;, 2, &quot;uint8&quot;],
+        [&quot;SubType&quot;, 2, &quot;Flags&quot;, {
+            &quot;type&quot;: &quot;uint8&quot;,
+            &quot;bitmap&quot;: {
+                &quot;File&quot;: 1,
+                &quot;Directory&quot;: 0,
+                &quot;Unicode&quot;: 4,
+            }
+        }],
+        [&quot;__LastModificationTime&quot;, 8, &quot;uint32&quot;],
+        [&quot;LastModificationTime&quot;, 8, &quot;FatTimestamp&quot;],
+        [&quot;ShortName&quot;, 14, &quot;String&quot;],
+
+        # Variable length search for the extension signature from the start of the struct.
+        [&quot;__pre&quot;, 0, &quot;String&quot;, {
+            &quot;term_hex&quot;: &quot;0400efbe&quot;
+        }],
+
+        # The extension tag should be immediately after the search string.
+        [&quot;__ExtensionTag&quot;, &quot;x=&gt;len(list=x.__pre)&quot;, &quot;uint32&quot;],
+
+        # Extension starts 4 bytes before the tag
+        [&quot;Extension&quot;, &quot;x=&gt;len(list=x.__pre) - 4&quot;, &quot;Union&quot;, {
+            &quot;selector&quot;: &quot;x=&gt;format(format='%#x', args=x.__ExtensionTag)&quot;,
+            &quot;choices&quot;: {
+               &quot;0xbeef0004&quot;: &quot;Beef0004&quot;,
+            }
+         }],
+
+         # Put all the data together in a convenient location
+         [&quot;Description&quot;, 0, &quot;Value&quot;, {
+             &quot;value&quot;: 'x=&gt;dict(
+                 Type=x.SubType,
+                 Modified=if(condition=x.__LastModificationTime, then=x.LastModificationTime),
+                 LastAccessed=if(condition=x.Extension.__LastAccessed, then=x.Extension.LastAccessed),
+                 CreateDate=if(condition=x.Extension.__CreateDate, then=x.Extension.CreateDate),
+                 ShortName=x.ShortName,
+                 LongName=x.Extension.LongName,
+                 MFTID=x.Extension.MFTReference.MFTID,
+                 MFTSeq=x.Extension.MFTReference.SequenceNumber
+             )'
+         }]
+       ]],
+       [&quot;Beef0004&quot;, 0, [
+          [&quot;Size&quot;, 0, &quot;uint16&quot;],
+          [&quot;Version&quot;, 2, &quot;uint16&quot;],
+          [&quot;__Signature&quot;, 4, &quot;uint32&quot;],
+          [&quot;Signature&quot;, 0, &quot;Value&quot;, {
+              &quot;value&quot;: &quot;x=&gt;format(format='%#x', args=x.__Signature)&quot;
+          }],
+          [&quot;__CreateDate&quot;, 8, &quot;uint32&quot;],
+          [&quot;__LastAccessed&quot;, 12, &quot;uint32&quot;],
+
+          [&quot;CreateDate&quot;, 8, &quot;FatTimestamp&quot;],
+          [&quot;LastAccessed&quot;, 12, &quot;FatTimestamp&quot;],
+          [&quot;MFTReference&quot;, 20, &quot;MFTReference&quot;],
+          [&quot;LongName&quot;, 46, &quot;String&quot;, {
+              &quot;encoding&quot;: &quot;utf16&quot;
+          }]
+       ]],
+       [&quot;MFTReference&quot;, 0, [
+         [&quot;MFTID&quot;, 0, &quot;BitField&quot;, {
+             &quot;type&quot;: &quot;uint64&quot;,
+             &quot;start_bit&quot;: 0,
+             &quot;end_bit&quot;: 48,
+         }],
+         [&quot;SequenceNumber&quot;, 0, &quot;BitField&quot;, {
+             &quot;type&quot;: &quot;uint64&quot;,
+             &quot;start_bit&quot;: 48,
+             &quot;end_bit&quot;: 64,
+         }]
+       ]],
+
+       [&quot;NameInfo&quot;, &quot;x=&gt;x.NameInfoSize + 2&quot;, [
+            [&quot;Offset&quot;, 0, &quot;Value&quot;, {&quot;value&quot;: &quot;x=&gt;x.StartOf&quot;}],
+            [&quot;NameInfoSize&quot;, 0, &quot;Value&quot;, {
+                &quot;value&quot;: &quot;x=&gt;x.__NameInfoSize * 2&quot;
+            }],
+            [&quot;Name&quot;, 2, &quot;String&quot;, {
+                &quot;encoding&quot;: &quot;utf16&quot;,
+                &quot;length&quot;: &quot;x=&gt;x.NameInfoSize&quot;,
+            }],
+            [&quot;__NameInfoSize&quot;, 0, &quot;uint16&quot;],
+       ]],
+
+       [&quot;WorkingDirInfo&quot;, &quot;x=&gt;x.WorkingDirInfoSize + 2&quot;, [
+            [&quot;Offset&quot;, 0, &quot;Value&quot;, {&quot;value&quot;: &quot;x=&gt;x.StartOf&quot;}],
+            [&quot;WorkingDirInfoSize&quot;, 0, &quot;Value&quot;, {
+                &quot;value&quot;: &quot;x=&gt;x.__WorkingDirInfoSize * 2&quot;
+            }],
+            [&quot;WorkingDir&quot;, 2, &quot;String&quot;, {
+                &quot;encoding&quot;: &quot;utf16&quot;,
+                &quot;length&quot;: &quot;x=&gt;x.WorkingDirInfoSize&quot;,
+            }],
+            [&quot;__WorkingDirInfoSize&quot;, 0, &quot;uint16&quot;],
+       ]],
+
+       [&quot;RelativePathInfo&quot;, &quot;x=&gt;x.RelativePathInfoSize + 2&quot;, [
+            [&quot;Offset&quot;, 0, &quot;Value&quot;, {&quot;value&quot;: &quot;x=&gt;x.StartOf&quot;}],
+            [&quot;RelativePathInfoSize&quot;, 0, &quot;Value&quot;, {
+                &quot;value&quot;: &quot;x=&gt;x.__RelativePathInfoSize * 2&quot;
+            }],
+            [&quot;RelativePath&quot;, 2, &quot;String&quot;, {
+                &quot;encoding&quot;: &quot;utf16&quot;,
+                &quot;length&quot;: &quot;x=&gt;x.RelativePathInfoSize&quot;,
+            }],
+            [&quot;__RelativePathInfoSize&quot;, 0, &quot;uint16&quot;],
+       ]],
+
+       [&quot;ArgumentInfo&quot;, &quot;x=&gt;x.ArgumentInfoSize + 2&quot;, [
+            [&quot;Offset&quot;, 0, &quot;Value&quot;, {&quot;value&quot;: &quot;x=&gt;x.StartOf&quot;}],
+            [&quot;ArgumentInfoSize&quot;, 0, &quot;Value&quot;, {
+                &quot;value&quot;: &quot;x=&gt;x.__ArgumentInfoSize * 2&quot;
+            }],
+            [&quot;Arguments&quot;, 2, &quot;String&quot;, {
+                &quot;encoding&quot;: &quot;utf16&quot;,
+                &quot;length&quot;: &quot;x=&gt;x.ArgumentInfoSize&quot;,
+            }],
+            [&quot;__ArgumentInfoSize&quot;, 0, &quot;uint16&quot;],
+       ]],
+       [&quot;IconInfo&quot;, &quot;x=&gt;x.IconInfoSize + 2&quot;, [
+            [&quot;Offset&quot;, 0, &quot;Value&quot;, {&quot;value&quot;: &quot;x=&gt;x.StartOf&quot;}],
+            [&quot;IconInfoSize&quot;, 0, &quot;Value&quot;, {
+                &quot;value&quot;: &quot;x=&gt;x.__IconInfoSize * 2&quot;
+            }],
+            [&quot;IconLocations&quot;, 2, &quot;String&quot;, {
+                &quot;encoding&quot;: &quot;utf16&quot;,
+                &quot;length&quot;: &quot;x=&gt;x.IconInfoSize&quot;,
+            }],
+            [&quot;__IconInfoSize&quot;, 0, &quot;uint16&quot;],
+       ]]
+     ]
+     '''
+
+sources:
+  - query: |
+     LET link_files = SELECT parse_binary(
+         filename=FullPath,
+         profile=Profile, struct=&quot;ShellLinkHeader&quot;)  AS Parsed,
+         FullPath, Mtime as SourceModified, Btime as SourceCreated
+     FROM glob(globs=Glob)
+
+     SELECT FullPath, Parsed AS _Parsed, SourceCreated, SourceModified,
+            Parsed.LinkTargetIDList.IDList.ShellBag.Description AS _TargetIDInfo,
+            Parsed.CreationTime AS HeaderCreationTime,
+            Parsed.AccessTime AS HeaderAccessTime,
+            Parsed.WriteTime AS HeaderWriteTime,
+            Parsed.FileSize AS FileSize,
+            Parsed.LinkInfo.Target AS Target,
+            Parsed.NameInfo.Name AS Name,
+            Parsed.RelativePathInfo.RelativePath AS RelativePath,
+            Parsed.WorkingDirInfo.WorkingDir AS WorkingDir,
+            Parsed.ArgumentInfo.Arguments AS Arguments,
+            Parsed.IconInfo.IconLocations AS Icons,
+            if(condition=AlsoUpload, then=upload(file=FullPath)) AS Upload
+     FROM link_files
+
+column_types:
+  - name: Mtime
+    type: timestamp
+  - name: Atime
+    type: timestamp
+  - name: Btime
+    type: timestamp
+  - name: HeaderCreationTime
+    type: timestamp
+  - name: HeaderAccessTime
+    type: timestamp
+  - name: HeaderWriteTime
+    type: timestamp
+
+</code></pre><footer class=footline></footer></div><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//velocidex-velociraptor.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div id=navigation></div></section><div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px><div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=/js/clipboard.min.js?1666623082></script>
+<script src=/js/perfect-scrollbar.min.js?1666623082></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1666623082></script>
+<script src=/js/jquery.sticky.js?1666623082></script>
+<script src=/js/featherlight.min.js?1666623082></script>
+<script src=/js/highlight.min.js?1666623082></script>
+<script>hljs.highlightAll()</script><script src=/js/modernizr.custom-3.6.0.js?1666623082></script>
+<script src=/js/learn.js?1666623082></script>
+<script src=/js/hugo-learn.js?1666623082></script></body></html>

@@ -1,17 +1,17 @@
 name: Windows.Detection.PrintNightmare
 author: "Matt Green - @mgreen27"
 description: |
-  This artifact returns any binaries in the Windows/spool/drivers/** folders with
-  an untrusted Authenticode entry.
+  This artifact returns any binaries in the Windows/spool/drivers/**
+  folders with an untrusted Authenticode entry.
 
   It can be used to hunt for dll files droped during exploitation of
   CVE-2021-1675 - PrintNightmare.
 
   To query all attached ntfs drives: check the AllDrives switch.
 
-  I have added several filters to uplift search capabilities from the original
-  MFT artifact. Due to the multi-drive features, the MFTPath will output the MFT
-  path of the entry.
+  I have added several filters to uplift search capabilities from the
+  original MFT artifact. Due to the multi-drive features, the MFTPath
+  will output the MFT path of the entry.
 
   Available filters include:
   - FullPath regex
@@ -19,7 +19,7 @@ description: |
   - Time bounds to select files with a timestamp within time ranges
   - FileSize bounds
 
-  ![Sample output](https://user-images.githubusercontent.com/13081800/124166265-f2c08000-dae5-11eb-9359-ce7f80c1a10c.png)
+  ![Sample output](https://github.com/mgreen27/velociraptor-docs/raw/patch-5/content/exchange/artifacts/PrintNightmare.png)
 
 parameters:
   - name: MFTFilename
@@ -33,6 +33,9 @@ parameters:
   - name: FileRegex
     description: "Regex search over File Name"
     default: .
+  - name: AllAuthenticode
+    type: bool
+    description: "Show all binaries despite Authenticode trusted status (default shows only untrusted)."
   - name: DateAfter
     type: timestamp
     description: "search for events after this date. YYYY-MM-DDTmm:hh:ssZ"
@@ -127,4 +130,7 @@ sources:
         else= {
            SELECT * FROM mftsearch(MFTPath=MFTFilename)
         })
-      WHERE PE AND NOT Authenticode.Trusted = 'trusted'
+      WHERE PE
+        AND if(condition=AllAuthenticode,
+            then=TRUE,
+            else= NOT Authenticode.Trusted = 'trusted')

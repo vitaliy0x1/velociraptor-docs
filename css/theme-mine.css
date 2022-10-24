@@ -106,8 +106,8 @@ pre {
 
 }
 
-pre code {
-    font-size: 14px;
+pre code, pre.code {
+    font-size: 14pt;
 }
 
 div.progress  {
@@ -135,6 +135,14 @@ body.dark code.hljs {
 footer.footline {
     border-top: 1px none;
     border-top: var(--footer-color);
+}
+
+.vql_type.page-header {
+    margin-top: -30px;
+}
+
+table .vql_type {
+    padding: 20px;
 }
 
 .vql_type {
@@ -167,6 +175,20 @@ div.mynotices > div {
     margin-bottom: 0rem;
     color: var(--mynotice);
 }
+
+div.mynotices.tip > div:first-child:before {
+    content: "\f0eb";
+}
+
+div.mynotices.note > div:first-child:before {
+    content: "\f249";
+}
+
+div.mynotices.warning > div:first-child:before {
+    content: "\f1e2";
+}
+
+
 div.mynotices > div:first-child:before {
     position: absolute;
     top: 2px;
@@ -176,9 +198,6 @@ div.mynotices > div:first-child:before {
     content: "\f06a";
     left: 10px;
 }
-div.mynotices.info > div:first-child:after {
-    content: 'Info';
-}
 
 div.mynotices > div:first-child:after {
     position: absolute;
@@ -186,33 +205,31 @@ div.mynotices > div:first-child:after {
     color: var(--mynotices-first-child);
     left: 2rem;
 }
+
 div.mynotices.info > div {
     border-top: 30px solid var(--mynotice-info-border);
     background: var(--mynotice-info-background);
 }
-div.mynotices.info > div:first-child:after {
-    content: 'Info';
+
+div.mynotices > div:first-child:after {
+    content: attr(heading);
+    text-transform: capitalize;
+    color: var(--mynotices);
 }
+
 div.mynotices.warning > div {
     border-top: 30px solid var(--mynotice-warning-border);
     background: var(--mynotice-warning-background);
 }
-div.mynotices.warning > div:first-child:after {
-    content: 'Warning';
-}
+
 div.mynotices.note > div {
     border-top: 30px solid var(--mynotice-note-border);
     background: var(--mynotice-note-background);
 }
-div.mynotices.note > div:first-child:after {
-    content: 'Note';
-}
+
 div.mynotices.tip > div {
     border-top: 30px solid var(--mynotice-tip-border);
     background: var(--mynotice-tip-background);
-}
-div.mynotices.tip > div:first-child:after {
-    content: 'Tip';
 }
 
 #body img.shadow, #body .video-container.shadow {
@@ -469,6 +486,10 @@ div .border {
     word-spacing: 3px;
 }
 
+a.tag:hover {
+    text-decoration: none;
+}
+
 body.dark .color {
     background-color: var(--MAIN-TEXT-background-color);
     color: white;
@@ -480,6 +501,11 @@ div.search_results img.user-avatar {
     margin: 0 !important;
     height: 32px;
     display: flex;
+}
+
+.tag {
+    cursor: pointer;
+    padding: 8px;
 }
 
 .space {
@@ -530,6 +556,12 @@ p.egg {
     border: 0px;
 }
 
+table thead th {
+    background: var(--TABLE-HEADER-background-color);
+    color: var(--TABLE-HEADER-color);
+}
+
+
 .args table {
     border: none;
 }
@@ -571,4 +603,48 @@ body:after{
     color: #fff;
     line-height: 27px;
     transform:rotate(-45deg);
+}
+
+#body img.captioned {
+    margin-bottom: 1ex;
+}
+
+figcaption  {
+    display: block;
+    font-size: .875rem;
+    font-style: italic;
+    color: var(--gray-600);
+    text-align: center;
+    margin-top: .5rem;
+    margin-bottom: 2.5rem;
+}
+
+.author {
+    padding-left: 50px;
+    padding-bottom: 50px;
+    padding-top: 0;
+    color: var(--MAIN-Author);
+    font-weight: 400;
+}
+
+.date {
+    display: block;
+    color: var(--MAIN-Date);
+}
+
+#body .banner img {
+    max-width: 100%;
+}
+
+.modal-dialog.wide {
+    width: 90%;
+}
+
+.kb-tag {
+    margin: 0px;
+}
+
+.kb-tag .idea-tag {
+    margin: 0px;
+    padding: 0px;
 }

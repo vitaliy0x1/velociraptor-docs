@@ -1,13 +1,18 @@
-<!doctype html><html lang=en class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.84.4"><meta name=description content><link rel=icon href=/images/favicon.png type=image/png><title>Server Automation :: Velociraptor - Digging deeper!</title><link href=/css/nucleus.css?1625225579 rel=stylesheet><link href=/css/fontawesome-all.min.css?1625225579 rel=stylesheet><link href=/css/hybrid.css?1625225579 rel=stylesheet><link href=/css/featherlight.min.css?1625225579 rel=stylesheet><link href=/css/perfect-scrollbar.min.css?1625225579 rel=stylesheet><link href=/css/auto-complete.css?1625225579 rel=stylesheet><link href=/css/atom-one-dark-reasonable.css?1625225579 rel=stylesheet><link href=/css/theme.css?1625225579 rel=stylesheet><link href=/css/tabs.css?1625225579 rel=stylesheet><link href=/css/hugo-theme.css?1625225579 rel=stylesheet><link href=/css/theme-mine.css?1625225579 rel=stylesheet><link href=/css/atom-one-light.css?1625225579 rel=stylesheet><link href=/css/dark.css?1625225579 rel=stylesheet><link href=/css/syntax.css?1625225579 rel=stylesheet><link href=/css/light.css?1625225579 rel=stylesheet><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css?1625225579 rel=stylesheet><script src=/js/jquery-3.3.1.min.js?1625225579></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style><script></script></head><body data-url=/docs/server_automation/><nav id=sidebar><div id=header-wrapper><div id=header><script>function darkmode(){$("body").addClass("dark").removeClass("light"),document.cookie="theme=darkmode;path=/"}function lightmode(){$("body").removeClass("dark").addClass("light"),document.cookie="theme=lightmode;path=/"}const regex=new RegExp('theme=darkmode');regex.test(document.cookie)?darkmode():lightmode()</script><div class="btn btn-default ThemeSelector darkmode" onclick=darkmode()><i class="fas fa-moon"></i></div><div class="btn btn-default ThemeSelector lightmode" onclick=lightmode()><i class="fas fa-sun"></i></div><a href=https://docs.velociraptor.app/><img src=https://docs.velociraptor.app//images/logo.svg></a></div></div><div class=highlightable><ul class=topics><li data-nav-id=https://docs.velociraptor.app/docs/ class="dd-item parent haschildren"><div><i class="fa fa-angle-down fa-sm category-icon"></i>
+<!doctype html><html lang=en class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.104.3"><meta name=description content><link rel=icon href=/images/favicon.png type=image/png><title>Server Automation :: Velociraptor - Digging deeper!</title><link href=/css/nucleus.css?1666623088 rel=stylesheet><link href=/css/fontawesome-all.min.css?1666623088 rel=stylesheet><link href=/css/featherlight.min.css?1666623088 rel=stylesheet><link href=/css/perfect-scrollbar.min.css?1666623088 rel=stylesheet><link href=/css/auto-complete.css?1666623088 rel=stylesheet><link href=/css/theme.css?1666623088 rel=stylesheet><link href=/css/tabs.css?1666623088 rel=stylesheet><link href=/css/hugo-theme.css?1666623088 rel=stylesheet><link href=/css/theme-mine.css?1666623088 rel=stylesheet><link href=/css/dark.css?1666623088 rel=stylesheet><link href=/css/syntax.css?1666623088 rel=stylesheet><link href=/css/light.css?1666623088 rel=stylesheet><link href=/css/hljs.css?1666623088 rel=stylesheet><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css?1666623088 rel=stylesheet><script src=/js/jquery-3.3.1.min.js?1666623088></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-QYH72LMYCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-QYH72LMYCS",{anonymize_ip:!1})}</script><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-QYH72LMYCS","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script></script></head><body data-url=/docs/server_automation/><nav id=sidebar><div id=header-wrapper><div id=header><script>function darkmode(){$("body").addClass("dark").removeClass("light"),document.cookie="theme=darkmode;path=/"}function lightmode(){$("body").removeClass("dark").addClass("light"),document.cookie="theme=lightmode;path=/"}const regex=new RegExp("theme=darkmode");regex.test(document.cookie)?darkmode():lightmode()</script><div class="btn btn-default ThemeSelector darkmode" onclick=darkmode()><i class="fas fa-moon"></i></div><div class="btn btn-default ThemeSelector lightmode" onclick=lightmode()><i class="fas fa-sun"></i></div><a href=https://docs.velociraptor.app/><img src=https://docs.velociraptor.app//images/logo.svg></a></div></div><div class=highlightable><ul class=topics><li data-nav-id=https://docs.velociraptor.app/docs/ class="dd-item parent haschildren"><div><i class="fa fa-angle-down fa-sm category-icon"></i>
 <a href=/docs/><i class="fas fa-book-reader"></i>Documentation</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/overview/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
 <a href=/docs/overview/>Velociraptor Overview</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/overview/history/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/docs/overview/history/>History</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/overview/deployment/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
-<a href=/docs/overview/deployment/>Deployment</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/overview/deployment/self-signed/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/docs/overview/deployment/self-signed/>Self Signed SSL</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/overview/deployment/cloud/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/docs/overview/deployment/cloud/>Cloud Deployment</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/overview/deployment/clients/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/docs/overview/deployment/clients/>Deploying Clients</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/overview/deployment/rbac/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/docs/overview/deployment/rbac/>Users and Roles</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/overview/deployment/resources/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/docs/overview/deployment/resources/>Performance</a></div></li></ul></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/overview/history/>History</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/overview/support/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/overview/support/>Support Policy</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/deployment/>Deployment</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/deployment/self-signed/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/self-signed/>Self-Signed SSL</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/cloud/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/deployment/cloud/>Cloud Deployment</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/deployment/cloud/multifrontend/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/cloud/multifrontend/>Multi-Frontend</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/clients/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/clients/>Deploying Clients</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/rbac/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/rbac/>Users and Roles</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/resources/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/resources/>Performance</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/troubleshooting/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/troubleshooting/>Troubleshooting</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
 <a href=/docs/gui/>The Admin GUI</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/gui/clients/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
 <a href=/docs/gui/clients/>Inspecting clients</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/vfs/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
 <a href=/docs/gui/vfs/>The VFS</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/artifacts/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
@@ -20,143 +25,127 @@
 <a href=/docs/forensic/>Forensic Analysis</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/forensic/filesystem/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
 <a href=/docs/forensic/filesystem/>Searching Filenames</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/searching/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
 <a href=/docs/forensic/searching/>Searching Content</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/ntfs/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/docs/forensic/ntfs/>NTFS Analysis</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/evidence_of_execution/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/ntfs/>NTFS Analysis</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/binary/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/binary/>Binary parsing</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/evidence_of_execution/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
 <a href=/docs/forensic/evidence_of_execution/>Evidence Of Execution</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/event_logs/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
 <a href=/docs/forensic/event_logs/>Event Logs</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/volatile/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/docs/forensic/volatile/>Volatile machine state</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/offline_triage/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/docs/offline_triage/>Triage and acquisition</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/extending_vql/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/docs/extending_vql/>Extending VQL</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/server_automation/ class="dd-item parent active"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/docs/server_automation/>Server Automation</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/api/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/docs/api/>The API</a></div></li></ul></li><hr><li data-nav-id=https://docs.velociraptor.app/vql_reference/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
-<a href=/vql_reference/><i class="fas fa-book"></i>VQL Reference</a></div><ul><li data-nav-id=https://docs.velociraptor.app/vql_reference/basic/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/vql_reference/basic/>Basic VQL</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/windows/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/vql_reference/windows/>Windows Specific</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/parsers/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/vql_reference/parsers/>Parsers</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/server/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/vql_reference/server/>Server Side</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/plugin/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/vql_reference/plugin/>Client Side</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/event/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/vql_reference/event/>Event Plugins</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/experimental/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/vql_reference/experimental/>Experimental</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/misc/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/volatile/>Volatile State</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/offline_triage/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/offline_triage/>Triage and acquisition</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/client_monitoring/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/client_monitoring/>Client Monitoring</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/extending_vql/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/extending_vql/>Extending VQL</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/server_automation/ class="dd-item active haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/server_automation/>Server Automation</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/server_automation/server_api/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/server_automation/server_api/>Server API</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/server_automation/server_monitoring/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/server_automation/server_monitoring/>Server Monitoring</a></div></li></ul></li></ul></li><hr><li data-nav-id=https://docs.velociraptor.app/vql_reference/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/vql_reference/><i class="fas fa-book"></i>VQL Reference</a></div><ul><li data-nav-id=https://docs.velociraptor.app/vql_reference/basic/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/basic/>Basic VQL</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/linux/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/linux/>Linux Specific</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/windows/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/windows/>Windows Specific</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/parsers/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/parsers/>Parsers</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/server/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/server/>Server Side</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/plugin/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/plugin/>Client Side</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/event/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/event/>Event Plugins</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/experimental/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/experimental/>Experimental</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/misc/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
 <a href=/vql_reference/misc/>Misc</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/training/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/training/><i class="fas fa-graduation-cap"></i>Velociraptor Training</a></div></li><li data-nav-id=https://docs.velociraptor.app/blog/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/blog/><i class="fas fa-newspaper"></i>Velociraptor Blog</a></div></li><li data-nav-id=https://docs.velociraptor.app/exchange/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/exchange/><i class="fas fa-code"></i>Artifact Exchange</a></div></li><li data-nav-id=https://docs.velociraptor.app/search/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
-<a href=/search/><i class="fas fa-search"></i>Search</a></div></li></ul><hr><section id=shortcuts><h3></h3><ul><li><a class=padding href=https://github.com/Velocidex/velociraptor><i class="fab fa-github"></i>Github</a></li><li><a class=padding href=https://docs.velociraptor.app/discord/><i class="fab fa-discord"></i>Discord</a></li><li><a class=padding href=mailto:velociraptor-discuss@googlegroups.com><i class="fas fa-envelope"></i>Mailing List</a></li></ul></section><section id=footer><div class=footer-copyright>Brough to you by
-<img src=/images/Rapid7_logo.svg class=rapid7><br><i class="fas fa-copyright"></i> 2021</div></section></div></nav><script>$("#sidebar i.fa-angle-right").each(function(){$(this).parent().parent().find("ul").hide()})</script><section id=body><div id=overlay></div><div class="padding highlightable"><div><div id=top-bar><div id=top-github-link><a class=github-link title="Edit this page" href=https://github.com/scudette/velociraptor-docs/edit/master/content/docs/server_automation/_index.md target=blank><i class="fas fa-code-branch"></i>
+<a href=/training/><i class="fas fa-graduation-cap"></i>Training</a></div></li><li data-nav-id=https://docs.velociraptor.app/blog/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/blog/><i class="fas fa-newspaper"></i>Blog</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/presentations/><i class="fas fa-chalkboard-teacher"></i>Presentations</a></div><ul><li data-nav-id=https://docs.velociraptor.app/presentations/2022_linuxconf_au/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_linuxconf_au/>Linux Conf Au 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_auscert/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_auscert/>Auscert 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_dfrws_us/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_dfrws_us/>DFRWS US 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_tech_user_group_cbr/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_tech_user_group_cbr/>Tech Users Group 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_sans_summit/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_sans_summit/>SANS Summit 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_velocon/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_velocon/>Velocon 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_dfrws_apac/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_dfrws_apac/>DFRWS APAC 2022</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/exchange/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/exchange/><i class="fas fa-code"></i>Artifact Exchange</a></div></li><li data-nav-id=https://docs.velociraptor.app/artifact_references/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/artifact_references/><i class="fas fa-book"></i>Artifact Reference</a></div></li><li data-nav-id=https://docs.velociraptor.app/knowledge_base/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/knowledge_base/><i class="fas fa-brain"></i>Knowledge Base</a></div></li><li data-nav-id=https://docs.velociraptor.app/search/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/search/><i class='fas fa-search'></i>Search</a></div></li></ul><hr><section id=shortcuts><h3></h3><ul><li><a class=padding href=https://github.com/Velocidex/velociraptor><i class='fab fa-github'></i>Github</a></li><li><a class=padding href=https://docs.velociraptor.app/discord/><i class='fab fa-discord'></i>Discord</a></li><li><a class=padding href=mailto:velociraptor-discuss@googlegroups.com><i class='fas fa-envelope'></i>Mailing List</a></li><li><a class=padding href=https://docs.velociraptor.app/rss/><i class='fas fa-rss'></i>RSS</a></li></ul></section><section id=footer><div class=footer-copyright>Brought to you by
+<img src=/images/Rapid7_logo.svg class=rapid7><br><i class="fas fa-copyright"></i> 2022</div></section></div></nav><script>$("#sidebar i.fa-angle-right").each(function(){$(this).parent().parent().find("ul").hide()})</script><section id=body><div id=overlay></div><div class="padding highlightable"><div><div id=top-bar><div id=top-github-link><a class=github-link title='Edit this page' href=https://github.com/Velocidex/velociraptor-docs/edit/master/content/docs/server_automation/_index.md target=blank><i class="fas fa-code-branch"></i>
 <span id=top-github-link-text>Edit this page</span></a></div><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fas fa-bars"></i></a></span>
 <span id=toc-menu><i class="fas fa-list-alt"></i></span>
-<span class=links>Server Automation</span></div><div class=progress><div class=wrapper><nav id=TableOfContents><ul><li><a href=#managing-the-velociraptor-server>Managing the Velociraptor server</a></li></ul></nav></div></div></div></div><div id=head-tags></div><div id=body-inner><h1>Server Automation</h1><p>Velociraptor&rsquo;s uprecedented flexibility arises from the power of
+<span class=links>Server Automation</span></div><div class=progress><div class=wrapper><nav id=TableOfContents><ul><li><a href=#running-server-queries>Running server queries</a></li><li><a href=#enumerating-all-clients>Enumerating all clients</a><ul><li><a href=#exercise---label-clients>Exercise - label clients</a></li><li><a href=#exercise---label-all-windows-machines-with-a-certain-local-username>Exercise - Label all windows machines with a certain local username.</a></li></ul></li></ul></nav></div></div></div></div><div id=head-tags></div><div id=body-inner><h1>Server Automation</h1><p>Velociraptor&rsquo;s unprecedented flexibility arises from the power of
 VQL. We have seen how VQL can be used to collect artifacts on the
 endpoint, but VQL can be used on the server too.</p><p>Running VQL queries on the server allows for tasks on the server to be
 automated. In this page we will see how server artifacts can be used
-to customize server behaviour.</p><h2 id=managing-the-velociraptor-server>Managing the Velociraptor server</h2><p>Before we</p><p>Server concepts
-Client: A Velociraptor instance running on an endpoint. This is denoted by client_id and indexed in the client index.
-Flow: A single artifact collection instance. Can contain multiple artifacts with many sources each uploading multiple files.
-Hunt: A collection of flows from different clients. Hunt results consist of the results from all the hunt&rsquo;s flows
-35</p><p>Exercise - label clients
-Label all windows machines with a certain local username.</p><p>Launch a hunt to gather all usernames from all endpoints
-Write VQL to label all the clients with user &ldquo;mike&rdquo;</p><p>This can be used to label hosts based on any property of grouping that makes sense.
-Now we can focus our hunts on only these machines.
-36</p><p>Exercise - label clients with event query
-The previous method requires frequent hunts to update the labels - what if a new machine is provisioned?</p><p>Label all windows machines with a certain local username using an event query.
-37</p><p>Server management with VQL
-We just ran a hunt which downloaded 300Gb of data (oops!) now our server is full!</p><p>We need to delete the results from this hunt because we don&rsquo;t need them.
-38</p><p>Develop “Server.Admin.DeleteHunt”
-39
-Step 1: Find all the flows launched within the hunt
-Step 2: Figure out all the files that make up the flow: enumerate_flow()
-Step 3: Remove these files: file_store_delete()</p><p>40
-Start cancelling flows
-If your hunts are too heavy and overload the server simply start cancelling flows with VQL.</p><p>The Velociraptor API
-41</p><p>Why an API?
-Velociraptor needs to plug into a much wider ecosystem</p><p>Velociraptor can itself control other systems
-Can already be done by the execve() and http_client() VQL plugins.</p><p>Velociraptor can be controlled by external tools
-Allows external tools to enrich and automate Velociraptor
-This is what the API is for!</p><p>42</p><p>API Server
-GUI
-Client program (Python)
-X509 Cert
-X509 Cert
-TLS with mutual certificate verification.
-43
-TLS authentication occurs through pinned certificates - both client and server are mutually authenticated and must have certificates issued by Velociraptor&rsquo;s trusted CA.
-Execute arbitrary VQL</p><p>The Velociraptor API
-The API is extremely powerful so it must be protected!
-The point of an API is to allow a client program (written in any language) to interact with Velociraptor.
-The server mints a certificate for the client program to use. This allows it to authenticate and establish a TLS connection with the API server.
-By default the API server only listens on 127.0.0.1 - you need to reconfigure it to open it up.</p><p>Create a client API certificate
-velociraptor &ndash;config server.config.yaml &ndash;config server.config.yaml config api_client &ndash;name Mike &ndash;role administrator api.config.yaml
-45</p><p>Grant access to API key
-Currently two levels of access:
-velociraptor &ndash;config /etc/velociraptor/server.config.yaml config api_client &ndash;name Mike &ndash;role reader,api api_client.yaml
-velociraptor &ndash;config /etc/velociraptor/server.config.yaml acl grant Mike &ndash;role administrator,api</p><p>Access to push events to an artifact queue:
-velociraptor &ndash;config /etc/velociraptor/server.config.yaml acl grant Mike &lsquo;{&ldquo;publish_queues&rdquo;: [&ldquo;EventArtifact1&rdquo;, &ldquo;EventArtifact2&rdquo;]}&rsquo;
-46</p><p>Export access to your API
-Normally Velociraptor is listening on the loopback interface only
-If you want to use the API from external machines, enable binding to all interfaces
-47</p><p>Using Jupyter to analyze hunts
-48</p><p>Jupyter
-Jupyter is an interactive notebook app</p><p>Runs python internally but we can use it to call the server via APIs
-49</p><p>Install the python bindings
-For python we always recommend a virtual environment and Python 3 then:</p><p>pip install pyvelociraptor jupyter pandas
-50</p><p>51
-Download the api_client.yaml file to your workstation and edit the api_connection_string to your external domain name</p><p>Run a simple query
-Set the api file in the environment variable</p><p>Use the sample app in the PyVelociraptor bindings to test your connection to the server</p><p>pyvelociraptor &ldquo;SELECT * FROM info()&rdquo;</p><p>52</p><p>53</p><p>54</p><p>Running VQL on the server
-Write a simple script by copying the sample app and editing it</p><pre><code>creds = grpc.ssl_channel_credentials(
-    root_certificates=config[&quot;ca_certificate&quot;].encode(&quot;utf8&quot;),
-    private_key=config[&quot;client_private_key&quot;].encode(&quot;utf8&quot;),
-    certificate_chain=config[&quot;client_cert&quot;].encode(&quot;utf8&quot;))
+to customize server behaviour.</p><p>Before we discuss server automation we need to clarify some of the
+terms used when discussing the server.</p><ul><li><p><strong>Client</strong>: A Velociraptor instance running on an endpoint. This is
+denoted by client_id and indexed in the client index.</p></li><li><p><strong>Flow</strong>: A single artifact collection instance. Can contain
+multiple artifacts with many sources each uploading multiple files.</p></li><li><p><strong>Hunt</strong>: A collection of flows from different clients. Hunt results
+consist of the results from all the hunt&rsquo;s flows</p></li></ul><h2 id=running-server-queries>Running server queries</h2><p>The easiest way to run VQL queries on the server is simply using a
+notebook. Since notebook cells are evaluated within the server
+context, the query will be run directly on the server and therefore
+have access to all server information, make server configuration
+changes etc.</p><p>Practically notebook queries timeout after a 10 min period. Currently
+this limit can not be increased. If you find that the 10 min limit is
+insufficient, simply create a server artifact from the query you wish
+to run and launch it within the server artifacts screen. Server
+artifacts may be collected with increased time limits.</p><h2 id=enumerating-all-clients>Enumerating all clients</h2><p>You can enumerate all clients using the <code>clients()</code> plugin. This
+plugin provides basic information about each client on the system,
+including its client id and labels assigned to it.</p><div class="mynotices tip"><div heading=tip><p>If you do not provide any parameters to the <code>client()</code> plugin,
+Velociraptor will iterate over all the clients. This may result in a
+lot of rows. You can provide a <code>search</code> parameter, that uses the
+client index to find clients by label or hostname very quickly (This
+is the same mechanism used in the GUI search bar).</p><pre><code class=language-sql>-- Use this
+SELECT * FROM clients(search=&quot;MyHostname&quot;)
 
-options = (('grpc.ssl_target_name_override', &quot;VelociraptorServer&quot;,),)
-with grpc.secure_channel(config[&quot;api_connection_string&quot;], creds, options) as channel:
-    stub = api_pb2_grpc.APIStub(channel)
-    request = api_pb2.VQLCollectorArgs(
-        max_wait=1,
-        Query=[api_pb2.VQLRequest(
-            VQL=&quot; SELECT * from clients() &quot;,
-        )])
+-- Rather than this
+SELECT * FROM clients()
+WHERE os_info.fqdn =~ &quot;MyHostname&quot;
 
-    for response in stub.Query(request):
-</code></pre><p>package = json.loads(response.Response)
-print (package)</p><p>55</p><p>Schedule an artifact collection
-You can use the API to schedule an artifact collection</p><p>LET collection &lt;= collect_client(client_id=&lsquo;C.cdbd59efbda14627&rsquo;, artifacts=&lsquo;Generic.Client.Info&rsquo;, args=dict())
-56</p><p>Wait for the client to finish
-When a collection is done, the server will deliver an event to the System.Flow.Completion event artifact</p><p>You can watch this to be notified of flows completing</p><p>SELECT * FROM watch_monitoring(artifact=&lsquo;System.Flow.Completion&rsquo;) WHERE FlowId = collection.flow_id LIMIT 1
-57</p><p>Reading the results
-You can use the source() plugin to read the results from the collection.</p><p>SELECT * FROM source(client_id=collection.ClientId, flow_id=collection.flow_id, artifact=&lsquo;Generic.Client.Info/BasicInformation&rsquo;)
-58</p><p>Exercise: Put it all together
-Write VQL to call via the API to collect an artifact from an endpoint and read all the results in one query.
-59</p><p>Event Queries and Server Monitoring
-60</p><p>Server Monitoring
-We have previously seen that event queries can monitor for new events in real time</p><p>We can use this to monitor the server via the API using the watch_monitoring() VQL plugin.</p><p>61
-The Velociraptor API is asynchronous. When running event queries the gRPC call will block and stream results in real time.</p><p>Exercise - Watch for flow completions
-We can watch for any flow completion events via the API
-This allows our API program to respond whenever someone collects a certain artifact (e.g. post process it and relay the results to another system). We can also automatically collect another artifact after examining the collected data.
-SELECT * FROM
-watch_monitoring(artifact=’System.Flow.Completion’)
-62</p><p>Server side VQL Event artifacts
-63</p><p>Server Event Artifacts
-We saw that API clients can run VQL Event queries.
-The Velociraptor server also offers a permanent Event Artifact service - this will run all event artifacts server side.</p><p>We can use this to refine and post process events only using artifacts. We can also react on client events in the server.</p><p>64</p><p>Exercise: Powershell encoded cmdline
-Powershell may accept a script on the command line which is base64 encoded. This makes it harder to see what the script does, therefore many attackers launch powershell with this option
-We would like to keep a log on the server with the decoded powershell scripts.
-Our strategy will be:
-Watch the client’s process execution logs as an event stream on the server.
-Detect execution of powershell with encoded parameters
-Decode the parameter and report the decoded script.
-Store all results as another artifact.
-65</p><p>Server side artifacts
-Client Event Artifacts</p><p>Windows.Event.ProcessCreation</p><p>Server</p><p>Windows.Event.ProcessCreation Log files
-Server VQL watches the log file for specific events of interest
-Windows.Event.ProcessCreation
-66
-Server.Powershell.EncodedCommand</p><p>Install a server side event monitor
-67</p><p>Install a client side event monitor
-68</p><p>Generate an encoded powershell command using</p><p>powershell -encodedCommand ZABpAHIAIAAiAGMAOgBcAHAAcgBvAGcAcgBhAG0AIABmAGkAbABlAHMAIgAgAA==</p><p>Wait 2 minutes for events to be delivered.</p><p>69</p><p>70</p><p>Conclusions
-Velociraptor is essentially a collector of data
-Velociraptor has a number of ways to integrate and be controlled by other systems
-VQL provide execve() allowing Velociraptor to invoke other programs, and parse their output seamlessly.
-On the server VQL exposes server management functions allowing automating the server with artifacts.</p><p>71</p><p>Conclusions
-The Velociraptor server exposes VQL via a streaming API - allowing external programs to
-Listen for events on the server
-Command the server to collect and respond
-Enrich and filter data on the server for better triaging and response.</p><p>72</p><footer class=footline></footer></div></div><div id=navigation></div></section><div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px><div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=/js/clipboard.min.js?1625225579></script><script src=/js/perfect-scrollbar.min.js?1625225579></script><script src=/js/perfect-scrollbar.jquery.min.js?1625225579></script><script src=/js/jquery.sticky.js?1625225579></script><script src=/js/featherlight.min.js?1625225579></script><script src=/js/highlight.pack.js?1625225579></script><script>hljs.initHighlightingOnLoad()</script><script src=/js/modernizr.custom-3.6.0.js?1625225579></script><script src=/js/learn.js?1625225579></script><script src=/js/hugo-learn.js?1625225579></script></body></html>
+-- Use this
+SELECT * FROM clients(search=&quot;label:MyLabel&quot;)
+
+-- Rather than this
+SELECT * FROM clients()
+WHERE labels =~ &quot;MyLabel&quot;
+</code></pre></div></div><p>An example of a client record can be seen here</p><pre><code class=language-json>  {
+    &quot;client_id&quot;: &quot;C.04b2307000dfdf7a&quot;,
+    &quot;agent_information&quot;: {
+      &quot;version&quot;: &quot;2021-06-30T22:38:41Z&quot;,
+      &quot;name&quot;: &quot;velociraptor&quot;,
+    },
+    &quot;os_info&quot;: {
+      &quot;system&quot;: &quot;windows&quot;,
+      &quot;release&quot;: &quot;Microsoft Windows 10 Enterprise Evaluation10.0.19041 Build 19041&quot;,
+      &quot;machine&quot;: &quot;amd64&quot;,
+      &quot;fqdn&quot;: &quot;DESKTOP-8B08MEV-2&quot;,
+      &quot;install_date&quot;: 0,
+    },
+    &quot;first_seen_at&quot;: 1625214706,
+    &quot;last_seen_at&quot;: 1625236655282715,
+    &quot;last_ip&quot;: &quot;127.0.0.1:53786&quot;,
+    &quot;last_interrogate_flow_id&quot;: &quot;F.C3FCU0R46JK6S&quot;,
+    &quot;labels&quot;: []
+  }
+</code></pre><p>The <code>first_seen_at</code> and <code>last_seen_at</code> times are given in ns and
+seconds since the epoch. You can use the <code>timestamp()</code> function to
+convert those to a timestamp.</p><p>For example here is a query to return all clients currently connected:</p><pre><code class=language-vql>-- Find clients that were last seen less than 10 min ago.
+SELECT * FROM clients()
+WHERE timestamp(epoch=last_seen_at) &gt; now() - 600
+</code></pre><h3 id=exercise---label-clients>Exercise - label clients</h3><p>Labels are used within Velociraptor to group certain hosts
+together. This is useful for example when targeting a hunt, or to
+specify a set of clients to run monitoring queries.</p><p>You can change a client&rsquo;s label using the <code>label()</code> VQL function.</p><h3 id=exercise---label-all-windows-machines-with-a-certain-local-username>Exercise - Label all windows machines with a certain local username.</h3><p>To find out all the users on each endpoint, run a hunt for
+<code>Windows.Sys.Users</code>. Then simply run the following query in the hunt&rsquo;s
+notebook.</p><pre><code class=language-vql>SELECT label(client_id=client_id, op='set', labels=&quot;MyLabel&quot;), client_id
+FROM source()
+WHEN Name =~ &quot;Mike&quot;
+</code></pre><p><figure><img src=label_users.png alt="Labeling machines based on a hunt query" class=captioned><figcaption>Labeling machines based on a hunt query</figcaption></figure></p><div class="mynotices tip"><div heading=" VQL Queries are lazy "><p>Remember that VQL queries are lazy. This means that the label()
+function will only be evaluated on rows that pass the condition <code>Name =~ "Mike"</code>. Rows that do not include this name will be eliminated
+without evaluating the <code>label()</code> function, and therefore will not
+cause the client to be labeled.</p><p>The <code>source()</code> simply reads all the rows that were collected. It is
+context aware, so if invoked within a hunt notebook, the plugin
+generates all rows from all collected clients within the hunt. If
+evaluated within a collection notebook it generates all rows in this
+collection etc. You can also specify the exact hunt ID explicitly if
+needed.</p></div></div><p>Using selective hunting and post processing can be used to label hosts
+based on any property of grouping that makes sense (e.g. installed
+software, geolocation etc).</p><p>With suitable label groups it is possible to target our hunts on only
+these machines.</p><footer class=footline></footer></div><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//velocidex-velociraptor.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div id=navigation></div></section><div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px><div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=/js/clipboard.min.js?1666623088></script>
+<script src=/js/perfect-scrollbar.min.js?1666623088></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1666623088></script>
+<script src=/js/jquery.sticky.js?1666623088></script>
+<script src=/js/featherlight.min.js?1666623088></script>
+<script src=/js/highlight.min.js?1666623088></script>
+<script>hljs.highlightAll()</script><script src=/js/modernizr.custom-3.6.0.js?1666623088></script>
+<script src=/js/learn.js?1666623088></script>
+<script src=/js/hugo-learn.js?1666623088></script></body></html>

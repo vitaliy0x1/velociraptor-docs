@@ -1,0 +1,104 @@
+name: Windows.EventLogs.Hayabusa
+description: |
+   [Hayabusa](https://github.com/Yamato-Security/hayabusa) is a Windows event log fast forensics timeline generator and threat hunting tool.
+   
+   This artifact runs Hayabusa on the endpoint against the specified Windows event log directory, and generates and uploads a single CSV file for further analysis with excel, timeline explorer, elastic stack, etc.
+
+author: Eric Capuano - @eric_capuano, Whitney Champion - @shortxstack
+
+tools:
+ - name: Hayabusa
+   url: https://github.com/Yamato-Security/hayabusa/releases/download/v1.4.1/hayabusa-1.4.1-windows-64-bit.zip
+
+precondition: SELECT OS From info() where OS = 'windows'
+
+parameters:
+ - name: EVTXPath
+   description: "Path to the event logs for scanning"
+   default: C:\Windows\System32\winevt\Logs
+ - name: UTC
+   description: "Output time in UTC format"
+   type: bool
+   default: Y
+ - name: UpdateRules
+   description: "Update rules to latest before scanning logs"
+   type: bool
+ - name: DeprecatedRules
+   description: "Enable rules marked as deprecated"
+   type: bool
+ - name: NoisyRules
+   description: "Enable rules marked as noisy"
+   type: bool
+ - name: FullData
+   description: "Return original event content instead of just the detection - VERBOSE!"
+   type: bool
+ - name: DeepScan
+   description: "Scan ALL event IDs, not just those which apply to known rules."
+   type: bool
+ - name: MinLevel
+   description: "Minimum level for rules"
+   default: informational
+   type: choices
+   choices:
+     - informational
+     - critical
+     - high
+     - med
+     - low
+
+sources:
+ - query: |
+
+        LET Toolzip <= SELECT FullPath FROM Artifact.Generic.Utils.FetchBinary(ToolName="Hayabusa", IsExecutable=FALSE)
+
+        LET TmpDir <= tempdir()
+
+        LET UnzipIt <= SELECT * FROM unzip(filename=Toolzip.FullPath, output_directory=TmpDir)
+
+        LET HayabusaExe <= TmpDir + '\\hayabusa-1.4.1-win-x64.exe'
+
+        LET ConfigPath <= TmpDir + '\\rules\\config'
+
+        LET RulesPath <= TmpDir + '\\rules'
+       
+        LET BackupRules <= if(condition=UpdateRules, then={
+                                                    SELECT *
+                                                    FROM execve(argv=['cmd.exe', '/c',
+                                                    'ren',RulesPath,'rules_old'])
+                                                    })
+        
+        LET Update_Rules <= if(condition=UpdateRules, then={
+                                                    SELECT *
+                                                    FROM execve(argv=['cmd.exe', '/c', 'cd', TmpDir, '&', HayabusaExe, '-u'])
+                                                    })
+
+        LET Random <= rand(range=100000000000)
+        
+        LET CSVFile <= TmpDir + '\\hayabusa_results_'+str(str=Random)+'.csv'
+
+        LET cmdline <= array(a=HayabusaExe)
+        LET cmdline <= cmdline + ("-d", EVTXPath,
+                                  "-o", CSVFile,
+                                  "-r", RulesPath,
+                                  "-m", MinLevel,
+                                  "-q")
+
+        LET cmdline <= if(condition=UTC, then=cmdline + array(a="-U"), else=cmdline)
+        LET cmdline <= if(condition=DeprecatedRules, then=cmdline + array(a="-D"), else=cmdline)
+        LET cmdline <= if(condition=NoisyRules, then=cmdline + array(a="-n"), else=cmdline)
+        LET cmdline <= if(condition=FullData, then=cmdline + array(a="-F"), else=cmdline)
+        LET cmdline <= if(condition=DeepScan, then=cmdline + array(a="-D"), else=cmdline)
+
+
+        LET ExecHB <= SELECT * FROM execve(argv=cmdline, sep="\n", length=9999999)
+                       
+        LET UploadCSV <= upload(file=CSVFile,
+                          accessor="file",
+                          name='hayabusa_results_'+str(str=Random)+'.csv')
+            
+        LET UploadCSVResults <= SELECT *, FullPath, Size, Modifed, Type FROM UploadCSV
+                       
+        LET Results <= SELECT *, timestamp(string=Timestamp) AS EventTime FROM parse_csv(filename=CSVFile)
+        
+        SELECT * FROM Results
+

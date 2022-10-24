@@ -1,0 +1,489 @@
+<!doctype html><html lang=en class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.104.3"><meta name=description content><link rel=icon href=/images/favicon.png type=image/png><title>Windows.Carving.Hancitor :: Velociraptor - Digging deeper!</title><link href=/css/nucleus.css?1666623085 rel=stylesheet><link href=/css/fontawesome-all.min.css?1666623085 rel=stylesheet><link href=/css/featherlight.min.css?1666623085 rel=stylesheet><link href=/css/perfect-scrollbar.min.css?1666623085 rel=stylesheet><link href=/css/auto-complete.css?1666623085 rel=stylesheet><link href=/css/theme.css?1666623085 rel=stylesheet><link href=/css/tabs.css?1666623085 rel=stylesheet><link href=/css/hugo-theme.css?1666623085 rel=stylesheet><link href=/css/theme-mine.css?1666623085 rel=stylesheet><link href=/css/dark.css?1666623085 rel=stylesheet><link href=/css/syntax.css?1666623085 rel=stylesheet><link href=/css/light.css?1666623085 rel=stylesheet><link href=/css/hljs.css?1666623085 rel=stylesheet><link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css?1666623085 rel=stylesheet><script src=/js/jquery-3.3.1.min.js?1666623085></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-QYH72LMYCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-QYH72LMYCS",{anonymize_ip:!1})}</script><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-QYH72LMYCS","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script></script></head><body data-url=/exchange/artifacts/pages/windows.carving.hancitor/><nav id=sidebar><div id=header-wrapper><div id=header><script>function darkmode(){$("body").addClass("dark").removeClass("light"),document.cookie="theme=darkmode;path=/"}function lightmode(){$("body").removeClass("dark").addClass("light"),document.cookie="theme=lightmode;path=/"}const regex=new RegExp("theme=darkmode");regex.test(document.cookie)?darkmode():lightmode()</script><div class="btn btn-default ThemeSelector darkmode" onclick=darkmode()><i class="fas fa-moon"></i></div><div class="btn btn-default ThemeSelector lightmode" onclick=lightmode()><i class="fas fa-sun"></i></div><a href=https://docs.velociraptor.app/><img src=https://docs.velociraptor.app//images/logo.svg></a></div></div><div class=highlightable><ul class=topics><li data-nav-id=https://docs.velociraptor.app/docs/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/><i class="fas fa-book-reader"></i>Documentation</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/overview/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/overview/>Velociraptor Overview</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/overview/history/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/overview/history/>History</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/overview/support/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/overview/support/>Support Policy</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/deployment/>Deployment</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/deployment/self-signed/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/self-signed/>Self-Signed SSL</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/cloud/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/deployment/cloud/>Cloud Deployment</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/deployment/cloud/multifrontend/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/cloud/multifrontend/>Multi-Frontend</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/clients/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/clients/>Deploying Clients</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/rbac/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/rbac/>Users and Roles</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/resources/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/resources/>Performance</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/deployment/troubleshooting/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/deployment/troubleshooting/>Troubleshooting</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/gui/>The Admin GUI</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/gui/clients/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/gui/clients/>Inspecting clients</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/vfs/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/gui/vfs/>The VFS</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/artifacts/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/gui/artifacts/>Artifacts</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/gui/hunting/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/gui/hunting/>Hunting</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/vql/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/vql/>VQL Fundamentals</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/vql/notebooks/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/vql/notebooks/>Notebooks</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/vql/artifacts/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/vql/artifacts/>Artifacts</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/vql/events/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/vql/events/>Event Queries</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/forensic/>Forensic Analysis</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/forensic/filesystem/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/filesystem/>Searching Filenames</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/searching/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/searching/>Searching Content</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/ntfs/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/ntfs/>NTFS Analysis</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/binary/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/binary/>Binary parsing</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/evidence_of_execution/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/evidence_of_execution/>Evidence Of Execution</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/event_logs/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/event_logs/>Event Logs</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/forensic/volatile/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/forensic/volatile/>Volatile State</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/docs/offline_triage/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/offline_triage/>Triage and acquisition</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/client_monitoring/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/client_monitoring/>Client Monitoring</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/extending_vql/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/extending_vql/>Extending VQL</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/server_automation/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/docs/server_automation/>Server Automation</a></div><ul><li data-nav-id=https://docs.velociraptor.app/docs/server_automation/server_api/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/server_automation/server_api/>Server API</a></div></li><li data-nav-id=https://docs.velociraptor.app/docs/server_automation/server_monitoring/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/docs/server_automation/server_monitoring/>Server Monitoring</a></div></li></ul></li></ul></li><hr><li data-nav-id=https://docs.velociraptor.app/vql_reference/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/vql_reference/><i class="fas fa-book"></i>VQL Reference</a></div><ul><li data-nav-id=https://docs.velociraptor.app/vql_reference/basic/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/basic/>Basic VQL</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/linux/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/linux/>Linux Specific</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/windows/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/windows/>Windows Specific</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/parsers/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/parsers/>Parsers</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/server/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/server/>Server Side</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/plugin/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/plugin/>Client Side</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/event/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/event/>Event Plugins</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/experimental/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/experimental/>Experimental</a></div></li><li data-nav-id=https://docs.velociraptor.app/vql_reference/misc/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/vql_reference/misc/>Misc</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/training/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/training/><i class="fas fa-graduation-cap"></i>Training</a></div></li><li data-nav-id=https://docs.velociraptor.app/blog/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/blog/><i class="fas fa-newspaper"></i>Blog</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/ class="dd-item haschildren"><div><i class="fa fa-angle-right fa-sm category-icon"></i>
+<a href=/presentations/><i class="fas fa-chalkboard-teacher"></i>Presentations</a></div><ul><li data-nav-id=https://docs.velociraptor.app/presentations/2022_linuxconf_au/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_linuxconf_au/>Linux Conf Au 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_auscert/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_auscert/>Auscert 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_dfrws_us/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_dfrws_us/>DFRWS US 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_tech_user_group_cbr/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_tech_user_group_cbr/>Tech Users Group 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_sans_summit/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_sans_summit/>SANS Summit 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_velocon/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_velocon/>Velocon 2022</a></div></li><li data-nav-id=https://docs.velociraptor.app/presentations/2022_dfrws_apac/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/presentations/2022_dfrws_apac/>DFRWS APAC 2022</a></div></li></ul></li><li data-nav-id=https://docs.velociraptor.app/exchange/ class="dd-item parent haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/exchange/><i class="fas fa-code"></i>Artifact Exchange</a></div></li><li data-nav-id=https://docs.velociraptor.app/artifact_references/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/artifact_references/><i class="fas fa-book"></i>Artifact Reference</a></div></li><li data-nav-id=https://docs.velociraptor.app/knowledge_base/ class="dd-item haschildren"><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/knowledge_base/><i class="fas fa-brain"></i>Knowledge Base</a></div></li><li data-nav-id=https://docs.velociraptor.app/search/ class=dd-item><div><i class="fa fa-circleXX fa-sm category-icon"></i>
+<a href=/search/><i class='fas fa-search'></i>Search</a></div></li></ul><hr><section id=shortcuts><h3></h3><ul><li><a class=padding href=https://github.com/Velocidex/velociraptor><i class='fab fa-github'></i>Github</a></li><li><a class=padding href=https://docs.velociraptor.app/discord/><i class='fab fa-discord'></i>Discord</a></li><li><a class=padding href=mailto:velociraptor-discuss@googlegroups.com><i class='fas fa-envelope'></i>Mailing List</a></li><li><a class=padding href=https://docs.velociraptor.app/rss/><i class='fas fa-rss'></i>RSS</a></li></ul></section><section id=footer><div class=footer-copyright>Brought to you by
+<img src=/images/Rapid7_logo.svg class=rapid7><br><i class="fas fa-copyright"></i> 2022</div></section></div></nav><script>$("#sidebar i.fa-angle-right").each(function(){$(this).parent().parent().find("ul").hide()})</script><section id=body><div id=overlay></div><div class="padding highlightable"><div><div id=top-bar><div id=top-github-link><a class=github-link title='Edit this page' href=https://github.com/Velocidex/velociraptor-docs/edit/master/content/exchange/artifacts/Windows.Carving.Hancitor.yaml target=blank><i class="fas fa-code-branch"></i>
+<span id=top-github-link-text>Edit this page</span></a></div><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fas fa-bars"></i></a></span>
+<span id=toc-menu><i class="fas fa-list-alt"></i></span>
+<span class=links>Windows.Carving.Hancitor</span></div><div class=progress><div class=wrapper><nav id=TableOfContents></nav></div></div></div></div><div id=head-tags></div><div id=body-inner><h1>Windows.Carving.Hancitor</h1><p>This artifact yara-scans memory or unpacked DLL samples for
+Hancitor trojan detections, decrypting and returning the Build ID
+and C2 list.</p><p>You may select specific file paths or processes to be yara-scanned,
+or simply allow it to yara-scan all running processes (default)</p><p>NOTE:
+This content simply carves the configuration and does not unpack
+files on disk. That means pointing this artifact as a packed or
+obfuscated file will not obtain the expected results.</p><pre><code class=language-yaml>name: Windows.Carving.Hancitor
+author: &quot;Eduardo Mattos - @eduardfir&quot;
+description: |
+    This artifact yara-scans memory or unpacked DLL samples for
+    Hancitor trojan detections, decrypting and returning the Build ID
+    and C2 list.
+
+    You may select specific file paths or processes to be yara-scanned,
+    or simply allow it to yara-scan all running processes (default)
+
+    NOTE:
+    This content simply carves the configuration and does not unpack
+    files on disk.  That means pointing this artifact as a packed or
+    obfuscated file will not obtain the expected results.
+
+type: CLIENT
+
+reference:
+  - https://github.com/Yara-Rules/rules/blob/master/malware/MALW_hancitor.yar
+  - https://github.com/OALabs/Lab-Notes/blob/main/Hancitor/hancitor.ipynb
+  - https://github.com/kevoreilly/CAPEv2/blob/master/modules/processing/parsers/mwcp/Hancitor.py
+
+parameters:
+  - name: TargetFileGlob
+    default:
+  - name: PidRegex
+    default: .
+  - name: ProcessRegex
+    default: .
+  - name: DetectionYara
+    default: |
+        rule win_hancitor_auto {
+
+            meta:
+                author = &quot;Felix Bilstein - yara-signator at cocacoding dot com&quot;
+                date = &quot;2021-06-10&quot;
+                version = &quot;1&quot;
+                description = &quot;Detects win.hancitor.&quot;
+                info = &quot;autogenerated rule brought to you by yara-signator - Adapted for memory detection by Eduardo Mattos&quot;
+                tool = &quot;yara-signator v0.6.0&quot;
+                signator_config = &quot;callsandjumps;datarefs;binvalue&quot;
+                malpedia_reference = &quot;https://malpedia.caad.fkie.fraunhofer.de/details/win.hancitor&quot;
+                malpedia_rule_date = &quot;20210604&quot;
+                malpedia_hash = &quot;be09d5d71e77373c0f538068be31a2ad4c69cfbd&quot;
+                malpedia_version = &quot;20210616&quot;
+                malpedia_license = &quot;CC BY-SA 4.0&quot;
+                malpedia_sharing = &quot;TLP:WHITE&quot;
+
+            strings:
+                $sequence_0 = { 6a00 6a00 6824040000 6a00 6a00 6a00 }
+                    // n = 6, score = 800
+                    //   6a00                 | push                0
+                    //   6a00                 | push                0
+                    //   6824040000           | push                0x424
+                    //   6a00                 | push                0
+                    //   6a00                 | push                0
+                    //   6a00                 | push                0
+
+                $sequence_1 = { 68???????? 8d85dcfaffff 50 ff15???????? }
+                    // n = 4, score = 600
+                    //   68????????           |
+                    //   8d85dcfaffff         | lea                 eax, dword ptr [ebp - 0x524]
+                    //   50                   | push                eax
+                    //   ff15????????         |
+
+                $sequence_2 = { 6800010000 6a40 68???????? e8???????? }
+                    // n = 4, score = 600
+                    //   6800010000           | push                0x100
+                    //   6a40                 | push                0x40
+                    //   68????????           |
+                    //   e8????????           |
+
+                $sequence_3 = { 750d e8???????? 83c010 a3???????? }
+                    // n = 4, score = 500
+                    //   750d                 | jne                 0xf
+                    //   e8????????           |
+                    //   83c010               | add                 eax, 0x10
+                    //   a3????????           |
+
+                $sequence_4 = { 6a20 68???????? 68???????? e8???????? 83c410 }
+                    // n = 5, score = 500
+                    //   6a20                 | push                0x20
+                    //   68????????           |
+                    //   68????????           |
+                    //   e8????????           |
+                    //   83c410               | add                 esp, 0x10
+
+                $sequence_5 = { 8955fc 8b45f8 0fb74806 394dfc 7334 6b55fc28 }
+                    // n = 6, score = 500
+                    //   8955fc               | mov                 dword ptr [ebp - 4], edx
+                    //   8b45f8               | mov                 eax, dword ptr [ebp - 8]
+                    //   0fb74806             | movzx               ecx, word ptr [eax + 6]
+                    //   394dfc               | cmp                 dword ptr [ebp - 4], ecx
+                    //   7334                 | jae                 0x36
+                    //   6b55fc28             | imul                edx, dword ptr [ebp - 4], 0x28
+
+                $sequence_6 = { e9???????? b801000000 6bc800 8b5508 0fbe040a 8945fc 8b4dfc }
+                    // n = 7, score = 500
+                    //   e9????????           |
+                    //   b801000000           | mov                 eax, 1
+                    //   6bc800               | imul                ecx, eax, 0
+                    //   8b5508               | mov                 edx, dword ptr [ebp + 8]
+                    //   0fbe040a             | movsx               eax, byte ptr [edx + ecx]
+                    //   8945fc               | mov                 dword ptr [ebp - 4], eax
+                    //   8b4dfc               | mov                 ecx, dword ptr [ebp - 4]
+
+                $sequence_7 = { 85c0 7504 33c0 eb0f 8b450c 50 }
+                    // n = 6, score = 500
+                    //   85c0                 | test                eax, eax
+                    //   7504                 | jne                 6
+                    //   33c0                 | xor                 eax, eax
+                    //   eb0f                 | jmp                 0x11
+                    //   8b450c               | mov                 eax, dword ptr [ebp + 0xc]
+                    //   50                   | push                eax
+
+                $sequence_8 = { 83c201 895508 ebaf 33c0 }
+                    // n = 4, score = 500
+                    //   83c201               | add                 edx, 1
+                    //   895508               | mov                 dword ptr [ebp + 8], edx
+                    //   ebaf                 | jmp                 0xffffffb1
+                    //   33c0                 | xor                 eax, eax
+
+                $sequence_9 = { 55 8bec 81ec58010000 6a44 }
+                    // n = 4, score = 500
+                    //   55                   | push                ebp
+                    //   8bec                 | mov                 ebp, esp
+                    //   81ec58010000         | sub                 esp, 0x158
+                    //   6a44                 | push                0x44
+
+                $sequence_10 = { 8b4d08 51 ff15???????? 8945fc 8b55fc 8955f4 837dfc00 }
+                    // n = 7, score = 500
+                    //   8b4d08               | mov                 ecx, dword ptr [ebp + 8]
+                    //   51                   | push                ecx
+                    //   ff15????????         |
+                    //   8945fc               | mov                 dword ptr [ebp - 4], eax
+                    //   8b55fc               | mov                 edx, dword ptr [ebp - 4]
+                    //   8955f4               | mov                 dword ptr [ebp - 0xc], edx
+                    //   837dfc00             | cmp                 dword ptr [ebp - 4], 0
+
+                $sequence_11 = { eb9d 8b45f4 8b4de8 2b4804 }
+                    // n = 4, score = 500
+                    //   eb9d                 | jmp                 0xffffff9f
+                    //   8b45f4               | mov                 eax, dword ptr [ebp - 0xc]
+                    //   8b4de8               | mov                 ecx, dword ptr [ebp - 0x18]
+                    //   2b4804               | sub                 ecx, dword ptr [eax + 4]
+
+                $sequence_12 = { e8???????? 83c410 83f801 755d }
+                    // n = 4, score = 400
+                    //   e8????????           |
+                    //   83c410               | add                 esp, 0x10
+                    //   83f801               | cmp                 eax, 1
+                    //   755d                 | jne                 0x5f
+
+                $sequence_13 = { 8bec a1???????? 85c0 740c ff7508 6a00 }
+                    // n = 6, score = 400
+                    //   8bec                 | mov                 ebp, esp
+                    //   a1????????           |
+                    //   85c0                 | test                eax, eax
+                    //   740c                 | je                  0xe
+                    //   ff7508               | push                dword ptr [ebp + 8]
+                    //   6a00                 | push                0
+
+                $sequence_14 = { 53 56 57 8b483c 33f6 03c8 6a40 }
+                    // n = 7, score = 400
+                    //   53                   | push                ebx
+                    //   56                   | push                esi
+                    //   57                   | push                edi
+                    //   8b483c               | mov                 ecx, dword ptr [eax + 0x3c]
+                    //   33f6                 | xor                 esi, esi
+                    //   03c8                 | add                 ecx, eax
+                    //   6a40                 | push                0x40
+
+                $sequence_15 = { 8b4dfc 85c0 7402 8908 8b5518 85d2 }
+                    // n = 6, score = 400
+                    //   8b4dfc               | mov                 ecx, dword ptr [ebp - 4]
+                    //   85c0                 | test                eax, eax
+                    //   7402                 | je                  4
+                    //   8908                 | mov                 dword ptr [eax], ecx
+                    //   8b5518               | mov                 edx, dword ptr [ebp + 0x18]
+                    //   85d2                 | test                edx, edx
+
+                $sequence_16 = { 55 8bec 8b4d08 6a00 6a01 51 }
+                    // n = 6, score = 400
+                    //   55                   | push                ebp
+                    //   8bec                 | mov                 ebp, esp
+                    //   8b4d08               | mov                 ecx, dword ptr [ebp + 8]
+                    //   6a00                 | push                0
+                    //   6a01                 | push                1
+                    //   51                   | push                ecx
+
+                $sequence_17 = { 41 83f941 72ed 881d???????? c705????????01000000 }
+                    // n = 5, score = 400
+                    //   41                   | inc                 ecx
+                    //   83f941               | cmp                 ecx, 0x41
+                    //   72ed                 | jb                  0xffffffef
+                    //   881d????????         |
+                    //   c705????????01000000     |
+
+                $sequence_18 = { 57 ff15???????? 8bd8 83fbff 7509 6a00 57 }
+                    // n = 7, score = 400
+                    //   57                   | push                edi
+                    //   ff15????????         |
+                    //   8bd8                 | mov                 ebx, eax
+                    //   83fbff               | cmp                 ebx, -1
+                    //   7509                 | jne                 0xb
+                    //   6a00                 | push                0
+                    //   57                   | push                edi
+
+                $sequence_19 = { 7502 5d c3 ff7508 6a00 50 ff15???????? }
+                    // n = 7, score = 400
+                    //   7502                 | jne                 4
+                    //   5d                   | pop                 ebp
+                    //   c3                   | ret
+                    //   ff7508               | push                dword ptr [ebp + 8]
+                    //   6a00                 | push                0
+                    //   50                   | push                eax
+                    //   ff15????????         |
+
+                $sequence_20 = { a3???????? 8b45a0 05c8d45566 7440 }
+                    // n = 4, score = 100
+                    //   a3????????           |
+                    //   8b45a0               | mov                 eax, dword ptr [ebp - 0x60]
+                    //   05c8d45566           | add                 eax, 0x6655d4c8
+                    //   7440                 | je                  0x42
+
+                $sequence_21 = { a1???????? 83c052 8945cc 8365e400 }
+                    // n = 4, score = 100
+                    //   a1????????           |
+                    //   83c052               | add                 eax, 0x52
+                    //   8945cc               | mov                 dword ptr [ebp - 0x34], eax
+                    //   8365e400             | and                 dword ptr [ebp - 0x1c], 0
+
+                $sequence_22 = { 0345cc 8945c4 8b45cc 0345e4 }
+                    // n = 4, score = 100
+                    //   0345cc               | add                 eax, dword ptr [ebp - 0x34]
+                    //   8945c4               | mov                 dword ptr [ebp - 0x3c], eax
+                    //   8b45cc               | mov                 eax, dword ptr [ebp - 0x34]
+                    //   0345e4               | add                 eax, dword ptr [ebp - 0x1c]
+
+                $sequence_23 = { c645f301 0fb645f3 85c0 7476 a1???????? 83c044 a3???????? }
+                    // n = 7, score = 100
+                    //   c645f301             | mov                 byte ptr [ebp - 0xd], 1
+                    //   0fb645f3             | movzx               eax, byte ptr [ebp - 0xd]
+                    //   85c0                 | test                eax, eax
+                    //   7476                 | je                  0x78
+                    //   a1????????           |
+                    //   83c044               | add                 eax, 0x44
+                    //   a3????????           |
+
+                $sequence_24 = { 0305???????? 8945cc 8b45e4 48 8945e4 894df4 }
+                    // n = 6, score = 100
+                    //   0305????????         |
+                    //   8945cc               | mov                 dword ptr [ebp - 0x34], eax
+                    //   8b45e4               | mov                 eax, dword ptr [ebp - 0x1c]
+                    //   48                   | dec                 eax
+                    //   8945e4               | mov                 dword ptr [ebp - 0x1c], eax
+                    //   894df4               | mov                 dword ptr [ebp - 0xc], ecx
+
+                $sequence_25 = { 40 8945b8 837db80a 0f8d7f010000 8b45c4 0345cc 8945c4 }
+                    // n = 7, score = 100
+                    //   40                   | inc                 eax
+                    //   8945b8               | mov                 dword ptr [ebp - 0x48], eax
+                    //   837db80a             | cmp                 dword ptr [ebp - 0x48], 0xa
+                    //   0f8d7f010000         | jge                 0x185
+                    //   8b45c4               | mov                 eax, dword ptr [ebp - 0x3c]
+                    //   0345cc               | add                 eax, dword ptr [ebp - 0x34]
+                    //   8945c4               | mov                 dword ptr [ebp - 0x3c], eax
+
+                $sequence_26 = { 0f8ced000000 a1???????? a3???????? b9382baa99 8d45fc 50 6a00 }
+                    // n = 7, score = 100
+                    //   0f8ced000000         | jl                  0xf3
+                    //   a1????????           |
+                    //   a3????????           |
+                    //   b9382baa99           | mov                 ecx, 0x99aa2b38
+                    //   8d45fc               | lea                 eax, dword ptr [ebp - 4]
+                    //   50                   | push                eax
+                    //   6a00                 | push                0
+
+                $sequence_27 = { 8b45a0 05c8d45566 0f8482000000 c645f301 }
+                    // n = 4, score = 100
+                    //   8b45a0               | mov                 eax, dword ptr [ebp - 0x60]
+                    //   05c8d45566           | add                 eax, 0x6655d4c8
+                    //   0f8482000000         | je                  0x88
+                    //   c645f301             | mov                 byte ptr [ebp - 0xd], 1
+
+            condition:
+                7 of them
+        }
+sources:
+  - precondition:
+      SELECT OS From info() where OS = 'windows'
+
+    query: |
+        -- find target files
+        LET targetFiles = SELECT FullPath FROM glob(globs=TargetFileGlob)
+
+        -- find velociraptor process
+        LET me &lt;= SELECT Pid
+                  FROM pslist(pid=getpid())
+
+        -- find all processes and add filters
+        LET processes &lt;= SELECT Name AS ProcessName, CommandLine, Pid
+                        FROM pslist()
+                        WHERE Name =~ ProcessRegex
+                            AND format(format=&quot;%d&quot;, args=Pid) =~ PidRegex
+                            AND NOT Pid in me.Pid
+
+        -- scan processes in scope with our DetectionYara
+        LET processDetections &lt;= SELECT * FROM foreach(row=processes,
+                                query={
+                                    SELECT * FROM if(condition=TargetFileGlob=&quot;&quot;,
+                                        then={
+                                            SELECT *, ProcessName, CommandLine, Pid, Rule AS YaraRule
+                                            FROM proc_yara(pid=Pid, rules=DetectionYara)
+                                        })
+                                })
+
+        -- scan files in scope with our DetectionYara
+        LET fileDetections = SELECT * FROM foreach(row=targetFiles,
+                                query={
+                                    SELECT * FROM if(condition=TargetFileGlob,
+                                        then={
+                                            SELECT * FROM switch(
+                                                a={ -- yara detection
+                                                    SELECT FullPath, Rule AS YaraRule
+                                                    FROM yara(files=FullPath, rules=DetectionYara)
+                                                },
+                                                b={ -- yara miss
+                                                    SELECT FullPath, Null AS YaraRule
+                                                    FROM targetFiles
+                                                })
+                                        },
+                                        else={ -- no yara detection run
+                                            SELECT FullPath, 'N/A' AS YaraRule
+                                            FROM targetFiles
+                                        })
+                             })
+        -- return the VAD region size from yara detections for later use
+        LET regionDetections = SELECT *
+                                FROM foreach(row=processDetections,
+                                    query={
+                                        SELECT YaraRule, Pid, ProcessName, CommandLine, Address as HancitorBaseOffset, Size AS VADSize
+                                        FROM vad(pid=Pid)
+                                        WHERE Protection =~ &quot;xrw&quot;
+                                            AND Size &gt; 4096 and Size &lt; 106496
+                                })
+
+        -- get data from the whole PE
+        LET peData &lt;= SELECT * FROM if(condition=TargetFileGlob,
+                                        then={ -- query files
+                                            SELECT YaraRule, FullPath,
+                                                read_file(filename=FullPath) AS PEData
+                                            FROM fileDetections
+                                        },
+                                        else={ -- query processes
+                                            SELECT YaraRule, Pid, ProcessName, CommandLine,
+                                                read_file(filename=str(str=Pid), accessor='process', offset=HancitorBaseOffset, length=VADSize) AS PEData
+                                            FROM regionDetections
+                                        })
+
+        -- return .data section info
+        LET sectionInfo &lt;= SELECT *,
+                                    parse_pe(file=PEData, accessor=&quot;data&quot;).Sections[2] AS SectionData
+                                FROM peData
+                                WHERE NOT SectionData = null
+
+        -- read the data from .data sections
+        LET dataSectionData &lt;= SELECT *,
+                                SectionData.RVA AS HancitorDataRVA,
+                                read_file(filename=PEData, accessor=&quot;data&quot;, offset=SectionData.FileOffset, length=SectionData.Size) AS HancitorDataSectionData
+                           FROM sectionInfo
+
+        -- parse the .data sections to extract the encrypted config
+        LET parsedDataSection &lt;= SELECT *,
+                            parse_binary(filename=HancitorDataSectionData, accessor=&quot;data&quot;, profile='''[
+                                [&quot;HancitorData&quot;, 0, [
+                                        [&quot;KeyValue&quot;, 16, &quot;String&quot;, {&quot;length&quot;: 8, &quot;term&quot;:&quot;&quot;}],
+                                        [&quot;HancitorEncodedConfig&quot;, &quot;x=&gt; 24&quot;, &quot;String&quot;, {&quot;length&quot;: x=&gt; 8192, &quot;term&quot;:&quot;&quot;, &quot;max_length&quot;: x=&gt; 8192}]
+                                    ]
+                                ]
+                            ]''', struct=&quot;HancitorData&quot;) AS HancitorData
+                          FROM dataSectionData
+
+        -- format/calculate rc4 key
+        LET keyConfigPairs &lt;= SELECT *,
+                                parse_string_with_regex(string=hash(path=HancitorData.KeyValue, accessor=&quot;data&quot;).SHA1, regex=&quot;(..........).+&quot;).g1 AS SubStringRC4Key,
+                                HancitorData.HancitorEncodedConfig AS HancitorEncodedConfig
+                              FROM parsedDataSection
+
+        -- rc4 decrypt the configurations
+        LET decryptedConfig &lt;= SELECT *,
+                                parse_string_with_regex(string=crypto_rc4(key=unhex(string=SubStringRC4Key), string=HancitorEncodedConfig), regex=&quot;(?P&lt;BUILD&gt;.+)\\b\\0+(?P&lt;URLs&gt;.+)\\b\\|\\0+&quot;) AS HancitorDecodedConfig
+                             FROM keyConfigPairs
+
+        -- format the decrypted configurations
+        SELECT * FROM if(condition=TargetFileGlob,
+            then= {
+                SELECT YaraRule, FullPath,
+                    HancitorDecodedConfig.BUILD AS HancitorBuild,
+                    split(string=HancitorDecodedConfig.URLs, sep=&quot;\\|&quot; ) AS HancitorC2
+                FROM decryptedConfig
+            },
+            else= {
+                SELECT YaraRule, Pid, ProcessName, CommandLine,
+                    HancitorDecodedConfig.BUILD AS HancitorBuild,
+                    split(string=HancitorDecodedConfig.URLs, sep=&quot;\\|&quot; ) AS HancitorC2
+                FROM decryptedConfig
+        })
+
+</code></pre><footer class=footline></footer></div><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//velocidex-velociraptor.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div id=navigation></div></section><div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px><div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=/js/clipboard.min.js?1666623085></script>
+<script src=/js/perfect-scrollbar.min.js?1666623085></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1666623085></script>
+<script src=/js/jquery.sticky.js?1666623085></script>
+<script src=/js/featherlight.min.js?1666623085></script>
+<script src=/js/highlight.min.js?1666623085></script>
+<script>hljs.highlightAll()</script><script src=/js/modernizr.custom-3.6.0.js?1666623085></script>
+<script src=/js/learn.js?1666623085></script>
+<script src=/js/hugo-learn.js?1666623085></script></body></html>

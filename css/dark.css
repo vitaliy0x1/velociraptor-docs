@@ -25,8 +25,13 @@ body.dark {
 
     --CODE-SECTION-BG-color: #424242;
 
+    --TABLE-HEADER-background-color: #323232;
+    --TABLE-HEADER-color: #ECEFF1;
+
     --footer-color: #183f81;
     --vql: red;
+    --MAIN-Author: red;
+    --MAIN-Date: #666;
     --mynotice: #EFEBE9;
     --mynotices-first-child: #E0E0E0;
     --mynotice-info-border: #FFCC8055;
